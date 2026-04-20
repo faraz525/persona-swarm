@@ -4,10 +4,11 @@ type Props = {
   state: RunState;
   isLaunching: boolean;
   onRun: () => void;
+  onReplay: () => void;
   personaCount: number;
 };
 
-export function RunHeader({ state, isLaunching, onRun, personaCount }: Props) {
+export function RunHeader({ state, isLaunching, onRun, onReplay, personaCount }: Props) {
   const statusBadge = statusBadgeText(state.status);
   const disabled = isLaunching || state.status === "running" || state.status === "aggregating";
 
@@ -42,11 +43,21 @@ export function RunHeader({ state, isLaunching, onRun, personaCount }: Props) {
         </span>
         <button
           type="button"
+          onClick={onReplay}
+          disabled={disabled}
+          title="Replay a recorded swarm — no Claude CLI needed"
+          className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Replay demo
+        </button>
+        <button
+          type="button"
           onClick={onRun}
           disabled={disabled}
+          title="Spawn a fresh swarm using the local Claude CLI"
           className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {isLaunching ? "Starting…" : "Run simulation"}
+          {isLaunching ? "Starting…" : "Run live"}
         </button>
       </div>
     </header>

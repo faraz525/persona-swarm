@@ -25,6 +25,16 @@ export function DashApp() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const url = new URL(window.location.href);
+    const runId = url.searchParams.get("runId");
+    if (!runId) return;
+    const paced = url.searchParams.get("paced") === "1";
+    openStream(runId, { paced });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const startRun = async () => {
     setIsLaunching(true);
     setSelectedPersonaId(null);
@@ -45,11 +55,17 @@ export function DashApp() {
     }
   };
 
-  const openStream = (runId: string) => {
-    esRef.current?.close();
-    setState((s) => ({ ...s, runId, status: "running", personas: new Map(), recommendations: [] }));
+  const replayDemo = () => {
+    setSelectedPersonaId(null);
+    openStream("fixture", { paced: true });
+  };
 
-    const es = new EventSource(`/api/runs/${runId}/sse`);
+  const openStream = (runId: string, opts: { paced?: boolean } = {}) => {
+    esRef.current?.close();
+    setState({ runId, status: "running", personas: new Map(), recommendations: [] });
+
+    const qs = opts.paced ? "?paced=1" : "";
+    const es = new EventSource(`/api/runs/${runId}/sse${qs}`);
     esRef.current = es;
 
     es.onmessage = (ev) => {
@@ -77,6 +93,7 @@ export function DashApp() {
         state={state}
         isLaunching={isLaunching}
         onRun={startRun}
+        onReplay={replayDemo}
         personaCount={personas.length}
       />
 
