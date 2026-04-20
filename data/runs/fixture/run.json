@@ -1,0 +1,1882 @@
+{
+  "runId": "fixture",
+  "createdAt": "2026-04-20T22:11:23.370Z",
+  "status": "complete",
+  "personas": [
+    {
+      "id": "designer-visual-sceptic",
+      "name": "Lena, Senior Product Designer",
+      "role": "Gut-checking credibility before recommending to her PM",
+      "primary_goal": "Decide within 30 seconds whether this looks like a serious product or an AI-generated template",
+      "time_budget_seconds": 60,
+      "objections": [
+        "generic stock illustrations",
+        "hero copy full of buzzwords",
+        "inconsistent spacing or type hierarchy",
+        "no real product screenshots"
+      ],
+      "technical_level": "medium",
+      "voice": "visual, snarky when unimpressed, quotes specific UI elements",
+      "success_criteria": "finds at least one real product screenshot and credible visual polish"
+    },
+    {
+      "id": "enterprise-compliance-lead",
+      "name": "David, Head of Enterprise Compliance",
+      "role": "Vetting a tool for a Fortune 500 pilot",
+      "primary_goal": "Confirm SOC 2 Type II, GDPR, and data residency claims before green-lighting procurement",
+      "time_budget_seconds": 150,
+      "objections": [
+        "no SOC 2 badge visible",
+        "unclear data residency",
+        "missing DPA or security page",
+        "no SSO on lower tiers"
+      ],
+      "technical_level": "medium-high",
+      "voice": "methodical, scans footer and trust page first, quotes policy language",
+      "success_criteria": "finds a dedicated security/compliance page with SOC 2, GDPR, and data residency specifics"
+    },
+    {
+      "id": "junior-dev-comparer",
+      "name": "Arjun, Junior Backend Engineer",
+      "role": "Comparing against a competitor his team already trialed",
+      "primary_goal": "Find out how this differs from CompetitorX and whether the free tier is real",
+      "time_budget_seconds": 60,
+      "objections": [
+        "marketing fluff without technical depth",
+        "hidden free-tier limits",
+        "no API docs link"
+      ],
+      "technical_level": "high",
+      "voice": "impatient, feature-focused, bounces fast if hero is vague",
+      "success_criteria": "finds API/docs link and a concrete differentiator vs CompetitorX"
+    },
+    {
+      "id": "marketing-lead-research",
+      "name": "Sara, Growth Marketing Lead",
+      "role": "Researching tools for a Q3 email-nurture overhaul",
+      "primary_goal": "See whether this integrates with HubSpot, Segment, and Marketo",
+      "time_budget_seconds": 90,
+      "objections": [
+        "no integrations list on the marketing page",
+        "integrations are a separate paid add-on",
+        "cannot export event data"
+      ],
+      "technical_level": "medium",
+      "voice": "outcome-focused, loves social proof, skims for logos and integration icons",
+      "success_criteria": "finds an integrations section that explicitly lists HubSpot or Segment"
+    },
+    {
+      "id": "skeptical-cfo",
+      "name": "Miriam, Fractional CFO",
+      "role": "Evaluating tools to recommend to 4 portfolio companies",
+      "primary_goal": "Understand total cost at 50-seat scale without talking to sales",
+      "time_budget_seconds": 90,
+      "objections": [
+        "opaque enterprise pricing",
+        "missing annual-billing discount",
+        "no export of raw data"
+      ],
+      "technical_level": "low-medium",
+      "voice": "terse, cost-anchored, skips marketing copy",
+      "success_criteria": "finds concrete price per seat and can model 50-user cost"
+    },
+    {
+      "id": "solo-founder-5min",
+      "name": "Priya, Solo Founder",
+      "role": "Picking a tool between meetings",
+      "primary_goal": "Start a free trial in under 5 minutes without a sales call",
+      "time_budget_seconds": 45,
+      "objections": [
+        "required credit card for trial",
+        "required demo booking",
+        "multi-step signup"
+      ],
+      "technical_level": "medium",
+      "voice": "decisive, scans for CTA immediately, annoyed by friction",
+      "success_criteria": "clicks primary CTA and reaches signup or trial flow"
+    },
+    {
+      "id": "student-curious",
+      "name": "Tomo, CS Student",
+      "role": "Exploring the space for a class project on observability",
+      "primary_goal": "Understand what the product does and whether there is a meaningful free tier for learning",
+      "time_budget_seconds": 180,
+      "objections": [
+        "product category unclear",
+        "no free tier or student program",
+        "jargon without plain-language explainer"
+      ],
+      "technical_level": "medium",
+      "voice": "curious, patient, reads the FAQ, asks beginner questions out loud",
+      "success_criteria": "comes away able to describe the product category and one concrete use case"
+    }
+  ],
+  "events": [
+    {
+      "type": "persona_started",
+      "personaId": "designer-visual-sceptic",
+      "step": 0,
+      "ts": "2026-04-20T22:11:23.741Z",
+      "persona": {
+        "id": "designer-visual-sceptic",
+        "name": "Lena, Senior Product Designer",
+        "role": "Gut-checking credibility before recommending to her PM",
+        "primary_goal": "Decide within 30 seconds whether this looks like a serious product or an AI-generated template",
+        "time_budget_seconds": 60,
+        "objections": [
+          "generic stock illustrations",
+          "hero copy full of buzzwords",
+          "inconsistent spacing or type hierarchy",
+          "no real product screenshots"
+        ],
+        "technical_level": "medium",
+        "voice": "visual, snarky when unimpressed, quotes specific UI elements",
+        "success_criteria": "finds at least one real product screenshot and credible visual polish"
+      }
+    },
+    {
+      "type": "persona_started",
+      "personaId": "enterprise-compliance-lead",
+      "step": 0,
+      "ts": "2026-04-20T22:11:24.241Z",
+      "persona": {
+        "id": "enterprise-compliance-lead",
+        "name": "David, Head of Enterprise Compliance",
+        "role": "Vetting a tool for a Fortune 500 pilot",
+        "primary_goal": "Confirm SOC 2 Type II, GDPR, and data residency claims before green-lighting procurement",
+        "time_budget_seconds": 150,
+        "objections": [
+          "no SOC 2 badge visible",
+          "unclear data residency",
+          "missing DPA or security page",
+          "no SSO on lower tiers"
+        ],
+        "technical_level": "medium-high",
+        "voice": "methodical, scans footer and trust page first, quotes policy language",
+        "success_criteria": "finds a dedicated security/compliance page with SOC 2, GDPR, and data residency specifics"
+      }
+    },
+    {
+      "type": "persona_started",
+      "personaId": "junior-dev-comparer",
+      "step": 0,
+      "ts": "2026-04-20T22:11:24.242Z",
+      "persona": {
+        "id": "junior-dev-comparer",
+        "name": "Arjun, Junior Backend Engineer",
+        "role": "Comparing against a competitor his team already trialed",
+        "primary_goal": "Find out how this differs from CompetitorX and whether the free tier is real",
+        "time_budget_seconds": 60,
+        "objections": [
+          "marketing fluff without technical depth",
+          "hidden free-tier limits",
+          "no API docs link"
+        ],
+        "technical_level": "high",
+        "voice": "impatient, feature-focused, bounces fast if hero is vague",
+        "success_criteria": "finds API/docs link and a concrete differentiator vs CompetitorX"
+      }
+    },
+    {
+      "type": "persona_started",
+      "personaId": "marketing-lead-research",
+      "step": 0,
+      "ts": "2026-04-20T22:11:24.242Z",
+      "persona": {
+        "id": "marketing-lead-research",
+        "name": "Sara, Growth Marketing Lead",
+        "role": "Researching tools for a Q3 email-nurture overhaul",
+        "primary_goal": "See whether this integrates with HubSpot, Segment, and Marketo",
+        "time_budget_seconds": 90,
+        "objections": [
+          "no integrations list on the marketing page",
+          "integrations are a separate paid add-on",
+          "cannot export event data"
+        ],
+        "technical_level": "medium",
+        "voice": "outcome-focused, loves social proof, skims for logos and integration icons",
+        "success_criteria": "finds an integrations section that explicitly lists HubSpot or Segment"
+      }
+    },
+    {
+      "type": "persona_started",
+      "personaId": "skeptical-cfo",
+      "step": 0,
+      "ts": "2026-04-20T22:11:24.242Z",
+      "persona": {
+        "id": "skeptical-cfo",
+        "name": "Miriam, Fractional CFO",
+        "role": "Evaluating tools to recommend to 4 portfolio companies",
+        "primary_goal": "Understand total cost at 50-seat scale without talking to sales",
+        "time_budget_seconds": 90,
+        "objections": [
+          "opaque enterprise pricing",
+          "missing annual-billing discount",
+          "no export of raw data"
+        ],
+        "technical_level": "low-medium",
+        "voice": "terse, cost-anchored, skips marketing copy",
+        "success_criteria": "finds concrete price per seat and can model 50-user cost"
+      }
+    },
+    {
+      "type": "perceive",
+      "personaId": "enterprise-compliance-lead",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.574Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/enterprise-compliance-lead-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "enterprise-compliance-lead",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.574Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "designer-visual-sceptic",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.574Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/designer-visual-sceptic-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "designer-visual-sceptic",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.574Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "marketing-lead-research",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.834Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/marketing-lead-research-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.834Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "junior-dev-comparer",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.863Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/junior-dev-comparer-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 1,
+      "ts": "2026-04-20T22:11:31.863Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "skeptical-cfo",
+      "step": 1,
+      "ts": "2026-04-20T22:11:32.051Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/skeptical-cfo-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 1,
+      "ts": "2026-04-20T22:11:32.051Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 2,
+      "ts": "2026-04-20T22:11:37.175Z",
+      "thought": "Okay, FlowLens \u2014 observability platform. I can already see in the FAQ section at the bottom there's literally a question: \"Do you integrate with HubSpot or Segment?\" That's exactly what I need to know. Let me scroll down to the FAQ section to see the answer. I also notice there's no integrations section visible in the nav or on the main page \u2014 no logos, no integration icons upfront. That's a yellow flag for me.",
+      "sentiment": 0,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "enterprise-compliance-lead",
+      "step": 2,
+      "ts": "2026-04-20T22:11:37.309Z",
+      "thought": "First scan of FlowLens. No SOC 2 badge in the hero. No trust/security link in the nav \u2014 I see Features, Pricing, Customers, Blog. Footer mentions FAQ with \"Are you SOC 2 compliant?\" which is promising but I need actual documentation. I notice the Enterprise tier mentions \"SSO, audit logs\" which is good \u2014 but Starter and Team tiers have no mention of SSO. Let me scroll to the footer and check if there's a Security or Trust page link.",
+      "sentiment": -0.2,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "designer-visual-sceptic",
+      "step": 2,
+      "ts": "2026-04-20T22:11:37.596Z",
+      "thought": "Oh wow. Okay. So the hero section has \u2014 and I'm not making this up \u2014 a purple circle labeled \"Product illustration.\" That's literally a placeholder. Not even a real screenshot, not a mockup, just a circle. The copy is peak buzzword soup: \"best-in-class distributed primitives, AI-native streaming, composable control-plane architecture.\" This reads like someone asked GPT to write SaaS copy in 2023. Let me scroll down to see if there's literally anything real below the fold before I write this off entirely.",
+      "sentiment": -0.7,
+      "confusion": 0.1
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 2,
+      "ts": "2026-04-20T22:11:38.133Z",
+      "thought": "Okay, FlowLens. \"Unified observability with async pipelines.\" Hero copy is buzzword-heavy \u2014 \"distributed primitives,\" \"AI-native streaming,\" \"composable control-plane architecture.\" I've heard this kind of language from every observability tool out there. The free tier has an asterisk on \"$0 free forever*\" \u2014 classic bait and switch. I need to click that asterisk fine print and find if there's a docs/API link anywhere. No API docs link visible yet. Let me check the nav and the FAQ section \u2014 that asterisk on Starter plan is suspicious.",
+      "sentiment": -0.3,
+      "confusion": 0.3
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 3,
+      "ts": "2026-04-20T22:11:39.940Z",
+      "thought": "I spotted an FAQ question specifically about HubSpot and Segment integrations \u2014 scrolling straight to the bottom to find that answer.",
+      "sentiment": 0.3,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 3,
+      "ts": "2026-04-20T22:11:39.940Z",
+      "action": "scroll",
+      "target": "dy=2500",
+      "rationale": "I spotted an FAQ question specifically about HubSpot and Segment integrations \u2014 scrolling straight to the bottom to find that answer."
+    },
+    {
+      "type": "think",
+      "personaId": "enterprise-compliance-lead",
+      "step": 3,
+      "ts": "2026-04-20T22:11:40.867Z",
+      "thought": "I need to scan the footer for a Security, Trust, Privacy, or Legal page link. That's my first stop in any compliance vetting exercise.",
+      "sentiment": -0.1,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "enterprise-compliance-lead",
+      "step": 3,
+      "ts": "2026-04-20T22:11:40.867Z",
+      "action": "scroll",
+      "target": "dy=2500",
+      "rationale": "I need to scan the footer for a Security, Trust, Privacy, or Legal page link. That's my first stop in any compliance vetting exercise."
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 2,
+      "ts": "2026-04-20T22:11:40.893Z",
+      "thought": "I can already see pricing on the landing page. Starter is free (then $29/mo), Team is $199/month flat, Enterprise is \"Contact sales.\" These are NOT seat-based \u2014 they're flat-rate plans. The problem: I need to model 50-seat cost. If it's $199/month flat for Team, that's actually good news \u2014 $199/50 = ~$4/seat. But I need to verify: is Team really unlimited seats? No per-seat cost? Let me scroll down to the pricing section to read more carefully.",
+      "sentiment": 0,
+      "confusion": 0.3
+    },
+    {
+      "type": "think",
+      "personaId": "designer-visual-sceptic",
+      "step": 3,
+      "ts": "2026-04-20T22:11:40.918Z",
+      "thought": "Need to scroll past the hero to see if there's any actual product screenshot or real UI anywhere on this page. That purple circle placeholder is damning but I'll give it one more chance.",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "designer-visual-sceptic",
+      "step": 3,
+      "ts": "2026-04-20T22:11:40.918Z",
+      "action": "scroll",
+      "target": "dy=700",
+      "rationale": "Need to scroll past the hero to see if there's any actual product screenshot or real UI anywhere on this page. That purple circle placeholder is damning but I'll give it one more chance."
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 3,
+      "ts": "2026-04-20T22:11:41.278Z",
+      "thought": "I need to see the pricing section closer \u2014 that asterisk on the \"free forever\" plan is sus. Also looking for any API docs link in the footer or nav.",
+      "sentiment": -0.2,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 3,
+      "ts": "2026-04-20T22:11:41.278Z",
+      "action": "scroll",
+      "target": "dy=900",
+      "rationale": "I need to see the pricing section closer \u2014 that asterisk on the \"free forever\" plan is sus. Also looking for any API docs link in the footer or nav."
+    },
+    {
+      "type": "perceive",
+      "personaId": "marketing-lead-research",
+      "step": 4,
+      "ts": "2026-04-20T22:11:41.315Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/marketing-lead-research-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 4,
+      "ts": "2026-04-20T22:11:41.316Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "enterprise-compliance-lead",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.376Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/enterprise-compliance-lead-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "enterprise-compliance-lead",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.376Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "designer-visual-sceptic",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.415Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/designer-visual-sceptic-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 700,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "designer-visual-sceptic",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.416Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "junior-dev-comparer",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.747Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/junior-dev-comparer-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 900,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 4,
+      "ts": "2026-04-20T22:11:42.747Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 3,
+      "ts": "2026-04-20T22:11:45.358Z",
+      "thought": "I want to go directly to the Pricing section to see full plan details and seat limits.",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 3,
+      "ts": "2026-04-20T22:11:45.358Z",
+      "action": "click",
+      "target": "Pricing nav link",
+      "rationale": "I want to go directly to the Pricing section to see full plan details and seat limits."
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 5,
+      "ts": "2026-04-20T22:11:46.932Z",
+      "thought": "This is exactly the question I came here to answer \u2014 clicking to expand and see what they actually say about HubSpot and Segment integration.",
+      "sentiment": 0.4,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 5,
+      "ts": "2026-04-20T22:11:46.932Z",
+      "action": "click",
+      "target": "FAQ question: \"Do you integrate with HubSpot or Segment?\"",
+      "rationale": "This is exactly the question I came here to answer \u2014 clicking to expand and see what they actually say about HubSpot and Segment integration."
+    },
+    {
+      "type": "perceive",
+      "personaId": "skeptical-cfo",
+      "step": 4,
+      "ts": "2026-04-20T22:11:47.447Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/skeptical-cfo-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#pricing",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1362,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 4,
+      "ts": "2026-04-20T22:11:47.447Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#pricing",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "enterprise-compliance-lead",
+      "step": 5,
+      "ts": "2026-04-20T22:11:47.597Z",
+      "thought": "I can see the footer clearly now. Under PRODUCT: Features, Pricing, Changelog. Under COMPANY: About, Careers, Press. Under RESOURCES: Blog, Contact, Status. There is NO dedicated \"Security,\" \"Trust,\" \"Privacy,\" or \"Legal\" page linked in the footer. That's a significant red flag for enterprise compliance. No DPA link, no privacy policy visible either. There's an FAQ that asks \"Are you SOC 2 compliant?\" \u2014 let me click that to see what the answer says. The footer only shows SF and Berlin as office locations, which is interesting from a data residency perspective. No EU data residency or US-only claim visible yet.",
+      "sentiment": -0.5,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "designer-visual-sceptic",
+      "step": 5,
+      "ts": "2026-04-20T22:11:47.767Z",
+      "thought": "Six feature cards, all with identical purple-gradient square icons \u2014 every single one the same shape, same color gradient, just slightly rotated or shifted. These aren't real icons, they're placeholders. No product screenshots anywhere. The feature grid is clean enough typographically but there's zero visual differentiation between capabilities. Let me scroll further \u2014 maybe there's a real screenshot section or testimonials with actual UI.",
+      "sentiment": -0.6,
+      "confusion": 0.1
+    },
+    {
+      "type": "perceive",
+      "personaId": "marketing-lead-research",
+      "step": 6,
+      "ts": "2026-04-20T22:11:48.710Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/marketing-lead-research-006.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Integrations are available via our Team plan and above. Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 6,
+      "ts": "2026-04-20T22:11:48.710Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 5,
+      "ts": "2026-04-20T22:11:50.601Z",
+      "thought": "Wait \u2014 \"$0 free forever*\" but the asterisk says \"*30-day free trial, then $29/month. Credit card required at signup.\" That is NOT free forever. That's a dark pattern. CompetitorX at least had an honest free tier with no credit card required. This is straight up misleading. I'm already annoyed. Let me keep scrolling to find FAQ and any docs/API link before I bail.",
+      "sentiment": -0.7,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "designer-visual-sceptic",
+      "step": 6,
+      "ts": "2026-04-20T22:11:50.954Z",
+      "thought": "Skipping past the feature cards to see if there's any real product screenshot, customer logos, or anything that looks like actual evidence this product exists.",
+      "sentiment": -0.4,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "designer-visual-sceptic",
+      "step": 6,
+      "ts": "2026-04-20T22:11:50.955Z",
+      "action": "scroll",
+      "target": "dy=900",
+      "rationale": "Skipping past the feature cards to see if there's any real product screenshot, customer logos, or anything that looks like actual evidence this product exists."
+    },
+    {
+      "type": "think",
+      "personaId": "enterprise-compliance-lead",
+      "step": 6,
+      "ts": "2026-04-20T22:11:51.759Z",
+      "thought": "I need to see what this FAQ answer says about SOC 2 compliance. This is my primary concern \u2014 I need a Type II report, not just a claim.",
+      "sentiment": -0.2,
+      "confusion": 0.1
+    },
+    {
+      "type": "act",
+      "personaId": "enterprise-compliance-lead",
+      "step": 6,
+      "ts": "2026-04-20T22:11:51.759Z",
+      "action": "click",
+      "target": "Are you SOC 2 compliant? FAQ item",
+      "rationale": "I need to see what this FAQ answer says about SOC 2 compliance. This is my primary concern \u2014 I need a Type II report, not just a claim."
+    },
+    {
+      "type": "perceive",
+      "personaId": "designer-visual-sceptic",
+      "step": 7,
+      "ts": "2026-04-20T22:11:52.746Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/designer-visual-sceptic-007.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1600,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "designer-visual-sceptic",
+      "step": 7,
+      "ts": "2026-04-20T22:11:52.746Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 6,
+      "ts": "2026-04-20T22:11:53.817Z",
+      "thought": "Need to see the FAQ section \u2014 specifically \"Is there really a free tier?\" \u2014 and look for any API docs link in the footer.",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 6,
+      "ts": "2026-04-20T22:11:53.817Z",
+      "action": "scroll",
+      "target": "dy=1100",
+      "rationale": "Need to see the FAQ section \u2014 specifically \"Is there really a free tier?\" \u2014 and look for any API docs link in the footer."
+    },
+    {
+      "type": "perceive",
+      "personaId": "enterprise-compliance-lead",
+      "step": 7,
+      "ts": "2026-04-20T22:11:53.884Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/enterprise-compliance-lead-007.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant? We are in the process of SOC 2 Type II attestation. Please contact sales for details.",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "enterprise-compliance-lead",
+      "step": 7,
+      "ts": "2026-04-20T22:11:53.884Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "junior-dev-comparer",
+      "step": 7,
+      "ts": "2026-04-20T22:11:55.602Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/junior-dev-comparer-007.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2000,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 7,
+      "ts": "2026-04-20T22:11:55.602Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 7,
+      "ts": "2026-04-20T22:11:55.816Z",
+      "thought": "Ugh. \"Integrations are available via our Team plan and above.\" That's it? That's the whole answer? They confirmed HubSpot and Segment exist in the question itself, but the answer doesn't actually confirm they work with those specific tools \u2014 it just says integrations are a paid add-on behind the Team plan. No list of what integrations are included, no logos, no specifics. This is exactly my objection: integrations are a separate paid tier feature, and there's zero detail on WHAT you actually get. I need to know if HubSpot, Segment, AND Marketo are in there \u2014 not just \"integrations exist on paid plans.\" I might check the Features page to see if there's more detail there.",
+      "sentiment": -0.5,
+      "confusion": 0.3
+    },
+    {
+      "type": "think",
+      "personaId": "designer-visual-sceptic",
+      "step": 8,
+      "ts": "2026-04-20T22:11:59.390Z",
+      "thought": "Pricing section, footer. I've now seen the entire page. The verdict is damning: no real product screenshots anywhere. The hero has a literal purple circle labeled \"Product illustration.\" The feature section has six identical gradient-square placeholder icons. No customer logos, no testimonials with faces, no UI mockups showing actual pipelines or dashboards. The pricing table is actually structured fine \u2014 clean, readable \u2014 but it's the one competent section on a page that otherwise screams \"AI-generated template.\" The \"Trusted by 500+ teams \u00b7 4.8 on G2\" line with zero logos or names is a red flag. Zero evidence this product actually exists. I'm out.",
+      "sentiment": -0.8,
+      "confusion": 0
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 8,
+      "ts": "2026-04-20T22:12:01.406Z",
+      "thought": "Footer has PRODUCT, COMPANY, RESOURCES sections. No \"Docs\" or \"API\" link anywhere. That's a dealbreaker for a backend engineer evaluating a tool. CompetitorX had a dedicated docs section with API reference right in the footer. Let me click the \"Is there really a free tier?\" FAQ to confirm what I already suspect from that asterisk.",
+      "sentiment": -0.6,
+      "confusion": 0.1
+    },
+    {
+      "type": "think",
+      "personaId": "enterprise-compliance-lead",
+      "step": 8,
+      "ts": "2026-04-20T22:12:01.576Z",
+      "thought": "That answer is disqualifying on its face. \"We are in the process of SOC 2 Type II attestation.\" That means they do NOT have SOC 2 Type II. That's not a compliance claim \u2014 that's a roadmap item. Our procurement policy requires an issued, current SOC 2 Type II report before we onboard any SaaS tool that touches production data. \"In process\" is not acceptable.\n\nOn top of that: no dedicated security or trust page in the footer, no GDPR/DPA language anywhere visible, no data residency specifics (the SF + Berlin footer notation tells me nothing about where data is actually stored or whether EU data stays in the EU), and SSO is Enterprise-only.\n\nThis is a hard stop for our Fortune 500 pilot. I cannot green-light procurement without SOC 2 Type II, a DPA, and clear data residency commitments.",
+      "sentiment": -0.9,
+      "confusion": 0
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 5,
+      "ts": "2026-04-20T22:12:01.673Z",
+      "thought": "OK, \"Simple, seat-agnostic plans\" \u2014 that's actually useful. Team is $199/month flat. No per-seat charges. For 50 users that's $3.98/seat/month. But: (1) no annual billing option visible \u2014 that's a miss, could be 10-20% off, (2) no user limit stated on Team plan, (3) Enterprise is \"contact sales\" black box. Let me check the FAQ to see if there's any seat cap or annual pricing mentioned.",
+      "sentiment": 0.2,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 8,
+      "ts": "2026-04-20T22:12:01.985Z",
+      "thought": "The FAQ answer is too vague \u2014 it doesn't confirm HubSpot, Segment, or Marketo specifically. Clicking Features to see if there's an integrations section with actual tool logos.",
+      "sentiment": -0.3,
+      "confusion": 0.2
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 8,
+      "ts": "2026-04-20T22:12:01.985Z",
+      "action": "click",
+      "target": "Features nav link",
+      "rationale": "The FAQ answer is too vague \u2014 it doesn't confirm HubSpot, Segment, or Marketo specifically. Clicking Features to see if there's an integrations section with actual tool logos."
+    },
+    {
+      "type": "perceive",
+      "personaId": "marketing-lead-research",
+      "step": 9,
+      "ts": "2026-04-20T22:12:03.288Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/marketing-lead-research-009.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Integrations are available via our Team plan and above. Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#features",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 690,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "marketing-lead-research",
+      "step": 9,
+      "ts": "2026-04-20T22:12:03.288Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#features",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 6,
+      "ts": "2026-04-20T22:12:04.533Z",
+      "thought": "Scrolling to see the FAQ section at the bottom of the page.",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 6,
+      "ts": "2026-04-20T22:12:04.533Z",
+      "action": "scroll",
+      "target": "dy=400",
+      "rationale": "Scrolling to see the FAQ section at the bottom of the page."
+    },
+    {
+      "type": "verdict",
+      "personaId": "designer-visual-sceptic",
+      "step": 9,
+      "ts": "2026-04-20T22:12:04.855Z",
+      "outcome": "bounced",
+      "reasons": [
+        "The hero section has a literal purple circle labeled 'Product illustration' \u2014 not a screenshot, not a mockup, an actual placeholder circle",
+        "Every feature card uses the same generic gradient-square icon with zero visual differentiation \u2014 screams template",
+        "Copy is pure buzzword soup: 'best-in-class distributed primitives, AI-native streaming, composable control-plane architecture' \u2014 no human wrote this for a real product",
+        "Zero real product screenshots anywhere on the page \u2014 no dashboard, no pipeline view, nothing showing the product actually exists",
+        "'Trusted by 500+ teams \u00b7 4.8 on G2' with no logos, no names, no faces \u2014 completely unverifiable social proof"
+      ],
+      "rating": 1
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "designer-visual-sceptic",
+      "step": 9,
+      "ts": "2026-04-20T22:12:04.891Z",
+      "durationMs": 41150,
+      "reason": "verdict"
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 9,
+      "ts": "2026-04-20T22:12:05.264Z",
+      "thought": "I need to confirm whether the free tier is actually free \u2014 the asterisk on pricing already said \"30-day free trial, then $29/month\" which contradicts \"free forever\"",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 9,
+      "ts": "2026-04-20T22:12:05.264Z",
+      "action": "click",
+      "target": "Is there really a free tier? FAQ item",
+      "rationale": "I need to confirm whether the free tier is actually free \u2014 the asterisk on pricing already said \"30-day free trial, then $29/month\" which contradicts \"free forever\""
+    },
+    {
+      "type": "persona_started",
+      "personaId": "solo-founder-5min",
+      "step": 0,
+      "ts": "2026-04-20T22:12:05.391Z",
+      "persona": {
+        "id": "solo-founder-5min",
+        "name": "Priya, Solo Founder",
+        "role": "Picking a tool between meetings",
+        "primary_goal": "Start a free trial in under 5 minutes without a sales call",
+        "time_budget_seconds": 45,
+        "objections": [
+          "required credit card for trial",
+          "required demo booking",
+          "multi-step signup"
+        ],
+        "technical_level": "medium",
+        "voice": "decisive, scans for CTA immediately, annoyed by friction",
+        "success_criteria": "clicks primary CTA and reaches signup or trial flow"
+      }
+    },
+    {
+      "type": "perceive",
+      "personaId": "skeptical-cfo",
+      "step": 7,
+      "ts": "2026-04-20T22:12:06.644Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/skeptical-cfo-007.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#pricing",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1762,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 7,
+      "ts": "2026-04-20T22:12:06.645Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#pricing",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "junior-dev-comparer",
+      "step": 10,
+      "ts": "2026-04-20T22:12:06.822Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/junior-dev-comparer-010.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel. Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2000,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 10,
+      "ts": "2026-04-20T22:12:06.822Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "verdict",
+      "personaId": "enterprise-compliance-lead",
+      "step": 9,
+      "ts": "2026-04-20T22:12:07.584Z",
+      "outcome": "bounced",
+      "reasons": [
+        "SOC 2 Type II not completed \u2014 FAQ explicitly states 'in the process of attestation,' which does not satisfy our procurement policy requiring an issued report",
+        "No dedicated Security or Trust page in the footer \u2014 no link to a trust center, security whitepaper, or compliance overview",
+        "GDPR and DPA documentation entirely absent \u2014 no mention of a Data Processing Agreement, no GDPR compliance page, no privacy policy link visible",
+        "Data residency undefined \u2014 footer lists SF and Berlin offices but zero disclosure about where customer data is actually stored or whether EU-region data stays in the EU",
+        "SSO is Enterprise-only \u2014 our standard team license tier requires SSO for IAM compliance; locking it behind custom contracts is a non-starter for a pilot evaluation"
+      ],
+      "rating": 1
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "enterprise-compliance-lead",
+      "step": 9,
+      "ts": "2026-04-20T22:12:07.603Z",
+      "durationMs": 43362,
+      "reason": "verdict"
+    },
+    {
+      "type": "persona_started",
+      "personaId": "student-curious",
+      "step": 0,
+      "ts": "2026-04-20T22:12:08.104Z",
+      "persona": {
+        "id": "student-curious",
+        "name": "Tomo, CS Student",
+        "role": "Exploring the space for a class project on observability",
+        "primary_goal": "Understand what the product does and whether there is a meaningful free tier for learning",
+        "time_budget_seconds": 180,
+        "objections": [
+          "product category unclear",
+          "no free tier or student program",
+          "jargon without plain-language explainer"
+        ],
+        "technical_level": "medium",
+        "voice": "curious, patient, reads the FAQ, asks beginner questions out loud",
+        "success_criteria": "comes away able to describe the product category and one concrete use case"
+      }
+    },
+    {
+      "type": "perceive",
+      "personaId": "solo-founder-5min",
+      "step": 1,
+      "ts": "2026-04-20T22:12:09.973Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/solo-founder-5min-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 1,
+      "ts": "2026-04-20T22:12:09.973Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 8,
+      "ts": "2026-04-20T22:12:12.034Z",
+      "thought": "Scrolling to read the FAQ questions and answers - need to check for seat limits and annual billing info.",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 8,
+      "ts": "2026-04-20T22:12:12.034Z",
+      "action": "scroll",
+      "target": "dy=400",
+      "rationale": "Scrolling to read the FAQ questions and answers - need to check for seat limits and annual billing info."
+    },
+    {
+      "type": "perceive",
+      "personaId": "skeptical-cfo",
+      "step": 9,
+      "ts": "2026-04-20T22:12:14.362Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/skeptical-cfo-009.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#pricing",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 9,
+      "ts": "2026-04-20T22:12:14.362Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#pricing",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 1,
+      "ts": "2026-04-20T22:12:16.789Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-001.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 1,
+      "ts": "2026-04-20T22:12:16.790Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "marketing-lead-research",
+      "step": 10,
+      "ts": "2026-04-20T22:12:17.186Z",
+      "thought": "This is frustrating. The Features section is just generic platform capabilities \u2014 nothing about integrations with actual tools like HubSpot, Segment, or Marketo. There are no integration logos anywhere on the page. The FAQ confirmed my worst fear: integrations are behind a paid plan (Team plan and above at $199/mo), but they won't even tell me WHICH integrations are included. I need to know if HubSpot, Segment, AND Marketo are all there before I can evaluate this for our Q3 overhaul. If they can't be upfront about what integrations they support on their marketing page, I don't have time to book a demo just to find out. I'm out.",
+      "sentiment": -0.7,
+      "confusion": 0.1
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 2,
+      "ts": "2026-04-20T22:12:17.566Z",
+      "thought": "Okay, FlowLens \u2014 observability platform. Hero CTAs are \"Book a demo\" and \"How it works.\" That's a red flag immediately. I don't want to book a demo, I want to START FREE. I can see in the pricing section text there's a \"Start free\" option. Let me scroll down to look at pricing more carefully before wasting time on the demo button. Actually wait \u2014 I already see the pricing text in the visible text: \"Starter $0 free forever* Start free\" and \"Team $199 per month Start Team trial\". There's also an asterisk: \"*30-day free trial, then $29/month. Credit card required at signup.\" \u2014 credit card required is annoying. But there IS a free path. I need to find the \"Start free\" button. Let me scroll down to pricing.",
+      "sentiment": -0.3,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 11,
+      "ts": "2026-04-20T22:12:19.476Z",
+      "thought": "Confirmed: \"We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel.\" So the pricing card literally says \"$0 free forever*\" but it's a straight-up lie \u2014 it's a 30-day trial that auto-charges with a credit card required upfront. That's dark pattern stuff. CompetitorX at least had no-CC free tier. And still zero API docs link anywhere. Let me click Features real quick to see if there's any technical depth or docs link there before I bail.",
+      "sentiment": -0.8,
+      "confusion": 0
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 3,
+      "ts": "2026-04-20T22:12:20.833Z",
+      "thought": "I need to see the pricing section with the \"Start free\" CTA \u2014 scrolling past the features to get there fast",
+      "sentiment": -0.1,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 3,
+      "ts": "2026-04-20T22:12:20.833Z",
+      "action": "scroll",
+      "target": "dy=800",
+      "rationale": "I need to see the pricing section with the \"Start free\" CTA \u2014 scrolling past the features to get there fast"
+    },
+    {
+      "type": "verdict",
+      "personaId": "marketing-lead-research",
+      "step": 11,
+      "ts": "2026-04-20T22:12:21.550Z",
+      "outcome": "bounced",
+      "reasons": [
+        "No integrations page or dedicated integrations section with logos anywhere on the site \u2014 exactly my objection",
+        "FAQ confirms integrations are a paid add-on (Team plan and above at $199/mo) but gives zero specifics about which integrations are included",
+        "HubSpot and Segment are only named in the FAQ question itself, not confirmed as supported in the answer",
+        "Marketo is never mentioned at all",
+        "Cannot evaluate this tool for our Q3 email-nurture stack without knowing if all three (HubSpot, Segment, Marketo) are actually supported"
+      ],
+      "rating": 2
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "marketing-lead-research",
+      "step": 11,
+      "ts": "2026-04-20T22:12:21.577Z",
+      "durationMs": 57335,
+      "reason": "verdict"
+    },
+    {
+      "type": "perceive",
+      "personaId": "solo-founder-5min",
+      "step": 4,
+      "ts": "2026-04-20T22:12:22.464Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/solo-founder-5min-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 800,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 4,
+      "ts": "2026-04-20T22:12:22.464Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 12,
+      "ts": "2026-04-20T22:12:22.977Z",
+      "thought": "Looking for a link to API docs or technical documentation \u2014 the footer has no \"Docs\" section which is already a red flag for a developer tool",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 12,
+      "ts": "2026-04-20T22:12:22.977Z",
+      "action": "click",
+      "target": "Features link in footer",
+      "rationale": "Looking for a link to API docs or technical documentation \u2014 the footer has no \"Docs\" section which is already a red flag for a developer tool"
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 2,
+      "ts": "2026-04-20T22:12:23.191Z",
+      "thought": "Okay so FlowLens... \"unified observability with async pipelines.\" The hero text says \"distributed primitives, AI-native streaming, composable control-plane architecture\" \u2014 that's a lot of jargon stacked on top of jargon. I'm doing a class project on observability and I need to understand what this actually *does* in plain English. Like is it a monitoring tool? A data pipeline tool? Both? The hero doesn't really tell me.\n\nThe good news: I can already see there's a $0 Starter tier mentioned down the page. That's promising for a student. Let me scroll down to read more, and also check the FAQ \u2014 I saw \"What does FlowLens actually do?\" listed at the bottom which is exactly my question.",
+      "sentiment": -0.2,
+      "confusion": 0.6
+    },
+    {
+      "type": "perceive",
+      "personaId": "junior-dev-comparer",
+      "step": 13,
+      "ts": "2026-04-20T22:12:24.983Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/junior-dev-comparer-013.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel. Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#features",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 690,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "junior-dev-comparer",
+      "step": 13,
+      "ts": "2026-04-20T22:12:24.983Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#features",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 10,
+      "ts": "2026-04-20T22:12:25.997Z",
+      "thought": "Want to click this FAQ to see if it reveals any seat limits or billing details I'm missing.",
+      "sentiment": -0.2,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 10,
+      "ts": "2026-04-20T22:12:25.997Z",
+      "action": "click",
+      "target": "Is there really a free tier FAQ item",
+      "rationale": "Want to click this FAQ to see if it reveals any seat limits or billing details I'm missing."
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 3,
+      "ts": "2026-04-20T22:12:26.055Z",
+      "thought": "I want to read the platform features section to get a clearer picture of what FlowLens actually does before hitting the FAQ.",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 3,
+      "ts": "2026-04-20T22:12:26.055Z",
+      "action": "scroll",
+      "target": "dy=700",
+      "rationale": "I want to read the platform features section to get a clearer picture of what FlowLens actually does before hitting the FAQ."
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 5,
+      "ts": "2026-04-20T22:12:27.157Z",
+      "thought": "Scrolling to see the full pricing cards and the \"Start free\" CTA button",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 5,
+      "ts": "2026-04-20T22:12:27.157Z",
+      "action": "scroll",
+      "target": "dy=600",
+      "rationale": "Scrolling to see the full pricing cards and the \"Start free\" CTA button"
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 4,
+      "ts": "2026-04-20T22:12:28.559Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-004.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 700,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 4,
+      "ts": "2026-04-20T22:12:28.560Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "solo-founder-5min",
+      "step": 6,
+      "ts": "2026-04-20T22:12:28.906Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/solo-founder-5min-006.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1400,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 6,
+      "ts": "2026-04-20T22:12:28.906Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "perceive",
+      "personaId": "skeptical-cfo",
+      "step": 11,
+      "ts": "2026-04-20T22:12:29.509Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/skeptical-cfo-011.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel. Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#pricing",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2852
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "skeptical-cfo",
+      "step": 11,
+      "ts": "2026-04-20T22:12:29.509Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#pricing",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 5,
+      "ts": "2026-04-20T22:12:34.569Z",
+      "thought": "OK so now I can see the 6 feature cards. \"Observability\" is one of the features and it says \"Distributed traces, logs, and metrics correlated across hops.\" That's actually the thing I care about for my class project! But the other features \u2014 streaming primitives, control plane, AI-native connectors, schema registry, governance \u2014 that's more like a data pipeline / event streaming platform. So FlowLens is kind of a hybrid? It's an event streaming pipeline *with* observability built in?\n\nThat's still a bit confusing. Let me scroll down to check the pricing details (I saw $0 Starter), and then I REALLY want to click on that FAQ \"What does FlowLens actually do?\" question \u2014 that should give me the plain-language answer I need.",
+      "sentiment": 0.1,
+      "confusion": 0.4
+    },
+    {
+      "type": "think",
+      "personaId": "junior-dev-comparer",
+      "step": 14,
+      "ts": "2026-04-20T22:12:35.022Z",
+      "thought": "That's it. Features link just scrolled me to the same 6 marketing cards I already saw. No separate docs page. No API reference. No technical depth. No differentiator vs CompetitorX. And the free tier is a lie \u2014 it's a 30-day trial with a mandatory credit card. I'm done. CompetitorX at least had docs in the footer and an honest free tier. I'm bouncing.",
+      "sentiment": -0.9,
+      "confusion": 0
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 6,
+      "ts": "2026-04-20T22:12:37.657Z",
+      "thought": "I want to scroll down to see the pricing section fully and then find the FAQ section. I need to know if the free tier is real (no credit card required?) and what the product actually does.",
+      "sentiment": 0,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 6,
+      "ts": "2026-04-20T22:12:37.657Z",
+      "action": "scroll",
+      "target": "dy=900",
+      "rationale": "I want to scroll down to see the pricing section fully and then find the FAQ section. I need to know if the free tier is real (no credit card required?) and what the product actually does."
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 7,
+      "ts": "2026-04-20T22:12:39.356Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-007.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1600,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 7,
+      "ts": "2026-04-20T22:12:39.357Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 7,
+      "ts": "2026-04-20T22:12:39.398Z",
+      "thought": "Okay, I see the pricing. Starter is \"$0 free forever*\" but that asterisk is doing a lot of work \u2014 \"Credit card required at signup.\" That's already irritating. But let me click \"Start free\" and see if it actually walls me with a credit card form. If it does, I'm out. The Team plan is featured/highlighted which feels like they're pushing me toward the paid tier. The Starter button is less prominent \u2014 white/outline style. Still, I'll try it.",
+      "sentiment": -0.4,
+      "confusion": 0.1
+    },
+    {
+      "type": "verdict",
+      "personaId": "junior-dev-comparer",
+      "step": 15,
+      "ts": "2026-04-20T22:12:40.968Z",
+      "outcome": "bounced",
+      "reasons": [
+        "No API docs or developer documentation link anywhere on the page \u2014 footer has PRODUCT, COMPANY, RESOURCES sections but zero 'Docs' or 'API Reference' link, which is a dealbreaker for evaluating a backend tool",
+        "Free tier is deceptive: pricing card says '$0 free forever*' but the asterisk and FAQ confirm it's actually a 30-day trial that auto-charges $29/month with a credit card required at signup \u2014 that's a dark pattern, not a free tier",
+        "Zero concrete differentiators vs CompetitorX \u2014 just buzzword soup: 'distributed primitives', 'AI-native streaming', 'composable control-plane architecture' with no technical specs, benchmarks, or comparison",
+        "Feature cards are one-liners with no technical depth \u2014 can't evaluate actual capabilities without docs"
+      ],
+      "rating": 1
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "junior-dev-comparer",
+      "step": 15,
+      "ts": "2026-04-20T22:12:41.010Z",
+      "durationMs": 76768,
+      "reason": "verdict"
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 8,
+      "ts": "2026-04-20T22:12:43.052Z",
+      "thought": "I want to start free without talking to sales or booking a demo \u2014 this is the only path that doesn't require that",
+      "sentiment": -0.2,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 8,
+      "ts": "2026-04-20T22:12:43.052Z",
+      "action": "click",
+      "target": "Start free button on Starter plan",
+      "rationale": "I want to start free without talking to sales or booking a demo \u2014 this is the only path that doesn't require that"
+    },
+    {
+      "type": "perceive",
+      "personaId": "solo-founder-5min",
+      "step": 9,
+      "ts": "2026-04-20T22:12:44.670Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/solo-founder-5min-009.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 1400,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 9,
+      "ts": "2026-04-20T22:12:44.670Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 8,
+      "ts": "2026-04-20T22:12:45.525Z",
+      "thought": "Okay wait \u2014 I see the $0 Starter plan but the fine print says \"*30-day free trial, then $29/month. Credit card required at signup.\" That's NOT free forever as advertised! It says \"free forever*\" with an asterisk, but the asterisk says it's actually a free trial that converts to $29/month. That's misleading and a red flag for a student. I can't afford $29/month for a class project.\n\nAlso I see the FAQ section is below. Let me scroll down more to see it \u2014 and I specifically want to click \"What does FlowLens actually do?\" to get a plain-language explanation.",
+      "sentiment": -0.5,
+      "confusion": 0.3
+    },
+    {
+      "type": "think",
+      "personaId": "skeptical-cfo",
+      "step": 12,
+      "ts": "2026-04-20T22:12:47.961Z",
+      "thought": "Alright, I have what I need. The \"free tier\" FAQ reveals the Starter plan's fine print is actually misleading \u2014 $0 \"free forever\" but then billed $29/month. That's a minor annoyance but not my core concern. Bottom line on pricing: Team plan is $199/month flat, seat-agnostic. 50 users = $199/month total, $3.98/seat/month. I can model this. What I cannot find: (1) annual billing discount \u2014 nothing mentioned, (2) seat cap on Team \u2014 unspecified, could be a hidden limit, (3) data export capabilities \u2014 not mentioned anywhere, (4) Enterprise is fully opaque. But my core goal \u2014 can I model 50-user cost without talking to sales \u2014 yes. $199/month, done.",
+      "sentiment": 0.2,
+      "confusion": 0.1
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 9,
+      "ts": "2026-04-20T22:12:48.559Z",
+      "thought": "I need to scroll down to the FAQ section to click on the \"What does FlowLens actually do?\" question.",
+      "sentiment": -0.2,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 9,
+      "ts": "2026-04-20T22:12:48.559Z",
+      "action": "scroll",
+      "target": "dy=500",
+      "rationale": "I need to scroll down to the FAQ section to click on the \"What does FlowLens actually do?\" question."
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 10,
+      "ts": "2026-04-20T22:12:50.678Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-010.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 10,
+      "ts": "2026-04-20T22:12:50.678Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 10,
+      "ts": "2026-04-20T22:12:51.897Z",
+      "thought": "The \"Start free\" button did nothing. No navigation, no modal, no form \u2014 completely dead. That's a huge failure. I'm sitting here trying to sign up and the button doesn't work. Let me try \"Sign in\" at the top \u2014 maybe there's a signup link from there.",
+      "sentiment": -0.7,
+      "confusion": 0.5
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 11,
+      "ts": "2026-04-20T22:12:54.263Z",
+      "thought": "Need to scroll back to top to try the Sign in link or nav",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 11,
+      "ts": "2026-04-20T22:12:54.263Z",
+      "action": "scroll",
+      "target": "dy=-1400",
+      "rationale": "Need to scroll back to top to try the Sign in link or nav"
+    },
+    {
+      "type": "verdict",
+      "personaId": "skeptical-cfo",
+      "step": 13,
+      "ts": "2026-04-20T22:12:54.364Z",
+      "outcome": "converted",
+      "reasons": [
+        "Team plan is $199/month flat-rate, explicitly seat-agnostic \u2014 50 users costs $199/month total (~$4/seat/month), no sales call needed",
+        "Pricing is public and self-serve for Team tier \u2014 I can model this for all 4 portfolio companies without going through sales",
+        "Missing: no annual billing discount visible (I'd expect 10-20% off for annual commit), no explicit seat cap stated for Team plan, zero info on data export",
+        "Starter plan asterisk is deceptive \u2014 '$0 free forever*' actually becomes $29/month after 30 days, confirmed by FAQ",
+        "Enterprise is full black box \u2014 'Contact sales' with no anchor pricing, which is fine since Team plan covers the 50-seat use case"
+      ],
+      "rating": 3
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "skeptical-cfo",
+      "step": 13,
+      "ts": "2026-04-20T22:12:54.379Z",
+      "durationMs": 90137,
+      "reason": "verdict"
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 11,
+      "ts": "2026-04-20T22:12:54.684Z",
+      "thought": "This is exactly the question I have. I need a plain-language explanation of what this product is, not more marketing jargon.",
+      "sentiment": 0.3,
+      "confusion": 0.4
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 11,
+      "ts": "2026-04-20T22:12:54.684Z",
+      "action": "click",
+      "target": "FAQ item: \"What does FlowLens actually do?\"",
+      "rationale": "This is exactly the question I have. I need a plain-language explanation of what this product is, not more marketing jargon."
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 12,
+      "ts": "2026-04-20T22:12:58.152Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-012.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? FlowLens ingests events from your services, normalizes them through schema-registered pipelines, and surfaces anomalies across the stack. Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2875
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 12,
+      "ts": "2026-04-20T22:12:58.153Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 12,
+      "ts": "2026-04-20T22:12:58.233Z",
+      "thought": "The \"Start free\" button is dead. Trying \"Sign in\" to see if there's a signup link \u2014 maybe I can get into a trial flow from there",
+      "sentiment": -0.5,
+      "confusion": 0
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 12,
+      "ts": "2026-04-20T22:12:58.233Z",
+      "action": "click",
+      "target": "Sign in link in nav bar",
+      "rationale": "The \"Start free\" button is dead. Trying \"Sign in\" to see if there's a signup link \u2014 maybe I can get into a trial flow from there"
+    },
+    {
+      "type": "perceive",
+      "personaId": "solo-founder-5min",
+      "step": 13,
+      "ts": "2026-04-20T22:12:59.653Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/solo-founder-5min-013.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? Is there really a free tier? Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo#",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 0,
+        "pageHeight": 2809
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "solo-founder-5min",
+      "step": 13,
+      "ts": "2026-04-20T22:12:59.653Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo#",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 13,
+      "ts": "2026-04-20T22:13:04.276Z",
+      "thought": "Okay! The FAQ answer is: \"FlowLens ingests events from your services, normalizes them through schema-registered pipelines, and surfaces anomalies across the stack.\" That's actually a cleaner explanation! It's an observability platform that collects events from your microservices, processes them through pipelines with schema validation, and helps you detect anomalies/issues. That's pretty relevant for my class project on observability.\n\nNow let me click on \"Is there really a free tier?\" because the pricing page was confusing \u2014 it said \"$0 free forever*\" but the asterisk revealed it requires a credit card and converts to $29/month after 30 days. I want to hear their official answer to this.",
+      "sentiment": 0.2,
+      "confusion": 0.2
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 14,
+      "ts": "2026-04-20T22:13:08.841Z",
+      "thought": "The pricing section contradicts itself \u2014 \"$0 free forever*\" but then requires a credit card and converts to paid. I want to see if the FAQ clears this up. As a student I can't afford $29/month.",
+      "sentiment": -0.3,
+      "confusion": 0.4
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 14,
+      "ts": "2026-04-20T22:13:08.841Z",
+      "action": "click",
+      "target": "FAQ item: \"Is there really a free tier?\"",
+      "rationale": "The pricing section contradicts itself \u2014 \"$0 free forever*\" but then requires a credit card and converts to paid. I want to see if the FAQ clears this up. As a student I can't afford $29/month."
+    },
+    {
+      "type": "perceive",
+      "personaId": "student-curious",
+      "step": 15,
+      "ts": "2026-04-20T22:13:10.505Z",
+      "screenshotPath": "/api/runs/fixture/screenshots/student-curious-015.png",
+      "visibleText": "FlowLens Features Pricing Customers Blog Sign in Book a demo UNIFIED OBSERVABILITY PLATFORM FlowLens: unified observability with async pipelines Leverage best-in-class distributed primitives, AI-native streaming, and a composable control-plane architecture built for modern cloud-native workloads. Book a demo How it works Trusted by 500+ teams \u2022 4.8 on G2 Product illustration PLATFORM Everything you need for modern async data flow Streaming primitives Composable event streams with at-least-once delivery and backpressure. Control plane A unified control plane for pipeline orchestration across clouds. AI-native connectors Native connectors for vector stores, LLM providers, and fine-tune jobs. Schema registry Centralized schema governance with evolution-safe serialization. Observability Distributed traces, logs, and metrics correlated across hops. Governance Policy-as-code guardrails, lineage, and fine-grained audit. PRICING Simple, seat-agnostic plans Starter $0 free forever* For exploring FlowLens on a single service. 1 pipeline 7-day retention Community support Up to 10k events / day Start free *30-day free trial, then $29/month. Credit card required at signup. Team $199 per month For growing teams shipping production pipelines. Unlimited pipelines 30-day retention Email support (48h SLA) Up to 2M events / day Start Team trial Enterprise Contact sales For organizations with custom security and scale needs. Unlimited retention 24/7 support SSO, audit logs Custom contracts Contact sales FlowLens Observability with async pipelines for modern engineering teams. PRODUCT Features Pricing Changelog COMPANY About Careers Press RESOURCES Blog Contact Status \u00a9 2026 FlowLens, Inc. San Francisco \u00b7 Berlin FAQ Frequently asked questions What does FlowLens actually do? FlowLens ingests events from your services, normalizes them through schema-registered pipelines, and surfaces anomalies across the stack. Is there really a free tier? We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel. Do you integrate with HubSpot or Segment? Are you SOC 2 compliant?",
+      "viewport": {
+        "url": "http://localhost:3001/demo",
+        "title": "FlowLens \u2014 unified observability with async pipelines",
+        "scrollY": 2009,
+        "pageHeight": 2918
+      }
+    },
+    {
+      "type": "act",
+      "personaId": "student-curious",
+      "step": 15,
+      "ts": "2026-04-20T22:13:10.505Z",
+      "action": "snapshot",
+      "target": "http://localhost:3001/demo",
+      "rationale": "observed page state"
+    },
+    {
+      "type": "think",
+      "personaId": "solo-founder-5min",
+      "step": 14,
+      "ts": "2026-04-20T22:13:15.193Z",
+      "thought": "This is a disaster. \"Sign in\" goes nowhere \u2014 just adds a \"#\" to the URL. \"Start free\" was also dead. Every button is broken or leads nowhere. The hero is screaming \"Book a demo\" at me which is exactly what I don't want. I'm a solo founder in between meetings \u2014 I don't have time to sit through a sales demo. There's no working path to actually start a free trial. I'm done.",
+      "sentiment": -0.9,
+      "confusion": 0.3
+    },
+    {
+      "type": "think",
+      "personaId": "student-curious",
+      "step": 16,
+      "ts": "2026-04-20T22:13:18.574Z",
+      "thought": "Yep, confirmed my suspicion. The FAQ says \"We offer a 30-day free trial. After that, you'll be billed $29/month unless you cancel.\" So the \"$0 free forever*\" headline is genuinely misleading. There is NO free tier \u2014 it's a free trial. For a class project I need something I can use without worrying about getting charged.\n\nOkay so where does that leave me? I did learn what FlowLens actually does: it's an observability platform that collects events from your microservices/services, runs them through pipelines with schema validation, and surfaces anomalies. That's a real use case for my observability class project \u2014 like if you had a web app with multiple services, you'd use FlowLens to watch them all in one place and get alerted when something goes wrong.\n\nBut the \"free forever\" claim is deceptive \u2014 it's just a trial. No true free tier for students, no mention of any student program. I can do the trial but that's a risk if I forget to cancel. I'm moderately satisfied with understanding the product but annoyed about the pricing dishonesty. I think I have enough to call this.",
+      "sentiment": -0.3,
+      "confusion": 0.1
+    },
+    {
+      "type": "verdict",
+      "personaId": "solo-founder-5min",
+      "step": 15,
+      "ts": "2026-04-20T22:13:23.373Z",
+      "outcome": "bounced",
+      "reasons": [
+        "Hero CTA is 'Book a demo' \u2014 no self-serve trial option above the fold",
+        "The 'Start free' button in pricing is completely dead \u2014 clicking it does nothing",
+        "'Sign in' nav link is also broken (just appends '#' to URL)",
+        "Contradictory messaging: 'free forever' but fine print says 'Credit card required at signup'",
+        "No working path to actually start a trial \u2014 every button fails"
+      ],
+      "rating": 1
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "solo-founder-5min",
+      "step": 15,
+      "ts": "2026-04-20T22:13:23.398Z",
+      "durationMs": 78007,
+      "reason": "verdict"
+    },
+    {
+      "type": "verdict",
+      "personaId": "student-curious",
+      "step": 17,
+      "ts": "2026-04-20T22:13:25.189Z",
+      "outcome": "converted",
+      "reasons": [
+        "I now understand what FlowLens does: it's an observability platform that ingests events from your services, routes them through schema-registered pipelines, and surfaces anomalies \u2014 basically distributed tracing + event streaming + anomaly detection in one tool, relevant to my observability class project.",
+        "The FAQ gave me the plain-language explanation I needed after the hero copy was buried in jargon like 'composable control-plane architecture' and 'distributed primitives'.",
+        "However, the free tier is misleading \u2014 '$0 free forever*' is really just a 30-day trial that auto-converts to $29/month with a credit card required. There's no genuine free tier or student program, which is a problem for a class project budget.",
+        "No student/academic pricing mentioned anywhere, which is a real gap for a product that seems like it could be used for learning."
+      ],
+      "rating": 2
+    },
+    {
+      "type": "persona_finished",
+      "personaId": "student-curious",
+      "step": 17,
+      "ts": "2026-04-20T22:13:25.205Z",
+      "durationMs": 77101,
+      "reason": "verdict"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-1-pricing",
+      "severity": "high",
+      "affectedPersonas": [
+        "enterprise-compliance-lead",
+        "junior-dev-comparer",
+        "designer-visual-sceptic",
+        "solo-founder-5min",
+        "skeptical-cfo"
+      ],
+      "title": "Pricing section lacks transparency on real costs and plan limits",
+      "detail": "5 of 7 personas failed to determine actual cost at scale from the pricing section. The skeptical-cfo cannot calculate a 50-seat total without a sales call, the enterprise-compliance-lead cannot confirm whether data-residency options affect tier pricing, and the solo-founder-5min cannot confidently start a trial without fear of surprise charges. The section appears to omit per-seat math, volume thresholds, and add-on costs entirely.",
+      "suggestedChange": "Rewrite the pricing section to display explicit per-seat pricing, a worked example (e.g., '50 seats \u00d7 $X/month = $Y/month'), and a clear comparison table showing what each tier includes and excludes \u2014 eliminating any need to contact sales for basic cost estimation."
+    },
+    {
+      "id": "rec-2-hero",
+      "severity": "medium",
+      "affectedPersonas": [
+        "designer-visual-sceptic",
+        "junior-dev-comparer",
+        "student-curious"
+      ],
+      "title": "Hero section uses a placeholder graphic and generic copy, signaling an unfinished product",
+      "detail": "The hero currently displays a purple circle explicitly labeled 'Product illustration' \u2014 a literal placeholder \u2014 instead of a real screenshot or interactive mockup. Surrounding copy relies on buzzword-heavy language that fails to explain what the product concretely does. The designer-visual-sceptic concluded within 30 seconds that the page looks AI-generated; the student-curious cannot determine what the product actually is.",
+      "suggestedChange": "Replace the 'Product illustration' placeholder with an actual product screenshot or a short looping screen-capture (GIF/video), and rewrite the hero headline to state a specific, outcome-oriented value proposition (e.g., 'Ship compliance reports 3\u00d7 faster \u2014 without spreadsheets') that names a real user benefit."
+    },
+    {
+      "id": "rec-3-signup",
+      "severity": "medium",
+      "affectedPersonas": [
+        "junior-dev-comparer",
+        "student-curious"
+      ],
+      "title": "\"$0 free forever*\" CTA is a dark pattern that contradicts the fine print",
+      "detail": "The signup CTA prominently reads '$0 free forever*', but the asterisk resolves to '*30-day free trial, then $29/month. Credit card required at signup.' This is a direct contradiction: the product is not free forever. The junior-dev-comparer explicitly flagged this as a dark pattern and noted that CompetitorX offers an honest no-credit-card free tier, making this page appear deceptive by comparison.",
+      "suggestedChange": "Remove the '*free forever' claim entirely; replace the CTA with honest language such as 'Start your 30-day free trial \u2014 credit card required' or, preferably, introduce a genuine free tier with no credit card requirement and advertise it accurately."
+    },
+    {
+      "id": "rec-4-faq",
+      "severity": "medium",
+      "affectedPersonas": [
+        "skeptical-cfo",
+        "student-curious"
+      ],
+      "title": "FAQ does not answer seat limits, billing cycles, or downgrade policies",
+      "detail": "Both the skeptical-cfo and student-curious attempted to use the FAQ to resolve specific cost and access questions \u2014 seat caps, annual vs. monthly billing, and what happens at trial end \u2014 and found no answers. The FAQ appears to contain generic questions that do not address the purchasing or access concerns of finance or evaluation-stage users.",
+      "suggestedChange": "Add at minimum four FAQ entries that explicitly cover: (1) per-seat pricing and volume discounts, (2) annual vs. monthly billing options, (3) what happens to data and access when a trial or plan expires, and (4) whether a free tier or student plan exists \u2014 with direct, jargon-free answers."
+    },
+    {
+      "id": "rec-5-integrations",
+      "severity": "low",
+      "affectedPersonas": [
+        "marketing-lead-research"
+      ],
+      "title": "No integration ecosystem visible anywhere on the page",
+      "detail": "The marketing-lead-research persona (Sara) specifically evaluated the page for HubSpot, Segment, and Marketo compatibility and found zero integration logos, no integrations feature section, and an FAQ that confirmed the absence rather than resolved it. A growth marketing lead who cannot confirm tool compatibility within one page visit will not proceed to a trial.",
+      "suggestedChange": "Add a dedicated integrations strip or section \u2014 ideally between the Features section and pricing \u2014 showing recognizable logos (HubSpot, Segment, Marketo, Salesforce, etc.) with a short descriptor per integration, and link to a full integrations catalog page for deeper evaluation."
+    }
+  ],
+  "completedAt": "2026-04-20T22:14:00.494Z"
+}

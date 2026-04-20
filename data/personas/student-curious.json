@@ -1,0 +1,15 @@
+{
+  "id": "student-curious",
+  "name": "Tomo, CS Student",
+  "role": "Exploring the space for a class project on observability",
+  "primary_goal": "Understand what the product does and whether there is a meaningful free tier for learning",
+  "time_budget_seconds": 180,
+  "objections": [
+    "product category unclear",
+    "no free tier or student program",
+    "jargon without plain-language explainer"
+  ],
+  "technical_level": "medium",
+  "voice": "curious, patient, reads the FAQ, asks beginner questions out loud",
+  "success_criteria": "comes away able to describe the product category and one concrete use case"
+}

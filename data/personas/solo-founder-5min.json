@@ -1,0 +1,15 @@
+{
+  "id": "solo-founder-5min",
+  "name": "Priya, Solo Founder",
+  "role": "Picking a tool between meetings",
+  "primary_goal": "Start a free trial in under 5 minutes without a sales call",
+  "time_budget_seconds": 45,
+  "objections": [
+    "required credit card for trial",
+    "required demo booking",
+    "multi-step signup"
+  ],
+  "technical_level": "medium",
+  "voice": "decisive, scans for CTA immediately, annoyed by friction",
+  "success_criteria": "clicks primary CTA and reaches signup or trial flow"
+}

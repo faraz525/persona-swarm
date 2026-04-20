@@ -1,0 +1,15 @@
+{
+  "id": "skeptical-cfo",
+  "name": "Miriam, Fractional CFO",
+  "role": "Evaluating tools to recommend to 4 portfolio companies",
+  "primary_goal": "Understand total cost at 50-seat scale without talking to sales",
+  "time_budget_seconds": 90,
+  "objections": [
+    "opaque enterprise pricing",
+    "missing annual-billing discount",
+    "no export of raw data"
+  ],
+  "technical_level": "low-medium",
+  "voice": "terse, cost-anchored, skips marketing copy",
+  "success_criteria": "finds concrete price per seat and can model 50-user cost"
+}

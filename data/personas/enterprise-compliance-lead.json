@@ -1,0 +1,16 @@
+{
+  "id": "enterprise-compliance-lead",
+  "name": "David, Head of Enterprise Compliance",
+  "role": "Vetting a tool for a Fortune 500 pilot",
+  "primary_goal": "Confirm SOC 2 Type II, GDPR, and data residency claims before green-lighting procurement",
+  "time_budget_seconds": 150,
+  "objections": [
+    "no SOC 2 badge visible",
+    "unclear data residency",
+    "missing DPA or security page",
+    "no SSO on lower tiers"
+  ],
+  "technical_level": "medium-high",
+  "voice": "methodical, scans footer and trust page first, quotes policy language",
+  "success_criteria": "finds a dedicated security/compliance page with SOC 2, GDPR, and data residency specifics"
+}

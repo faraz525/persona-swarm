@@ -1,0 +1,16 @@
+{
+  "id": "designer-visual-sceptic",
+  "name": "Lena, Senior Product Designer",
+  "role": "Gut-checking credibility before recommending to her PM",
+  "primary_goal": "Decide within 30 seconds whether this looks like a serious product or an AI-generated template",
+  "time_budget_seconds": 60,
+  "objections": [
+    "generic stock illustrations",
+    "hero copy full of buzzwords",
+    "inconsistent spacing or type hierarchy",
+    "no real product screenshots"
+  ],
+  "technical_level": "medium",
+  "voice": "visual, snarky when unimpressed, quotes specific UI elements",
+  "success_criteria": "finds at least one real product screenshot and credible visual polish"
+}

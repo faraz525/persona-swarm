@@ -1,0 +1,15 @@
+{
+  "id": "marketing-lead-research",
+  "name": "Sara, Growth Marketing Lead",
+  "role": "Researching tools for a Q3 email-nurture overhaul",
+  "primary_goal": "See whether this integrates with HubSpot, Segment, and Marketo",
+  "time_budget_seconds": 90,
+  "objections": [
+    "no integrations list on the marketing page",
+    "integrations are a separate paid add-on",
+    "cannot export event data"
+  ],
+  "technical_level": "medium",
+  "voice": "outcome-focused, loves social proof, skims for logos and integration icons",
+  "success_criteria": "finds an integrations section that explicitly lists HubSpot or Segment"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "junior-dev-comparer",
+  "name": "Arjun, Junior Backend Engineer",
+  "role": "Comparing against a competitor his team already trialed",
+  "primary_goal": "Find out how this differs from CompetitorX and whether the free tier is real",
+  "time_budget_seconds": 60,
+  "objections": [
+    "marketing fluff without technical depth",
+    "hidden free-tier limits",
+    "no API docs link"
+  ],
+  "technical_level": "high",
+  "voice": "impatient, feature-focused, bounces fast if hero is vague",
+  "success_criteria": "finds API/docs link and a concrete differentiator vs CompetitorX"
+}
