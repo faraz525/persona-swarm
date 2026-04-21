@@ -45,6 +45,22 @@ export function DashApp() {
     }
   };
 
+  const startReplay = async () => {
+    setIsLaunching(true);
+    setSelectedPersonaId(null);
+    setState({ runId: null, status: "queued", personas: new Map(), recommendations: [] });
+    try {
+      const res = await fetch("/api/runs/replay", { method: "POST" });
+      if (!res.ok) throw new Error("failed to start replay");
+      const { runId } = (await res.json()) as { runId: string };
+      openStream(runId);
+    } catch (e) {
+      setState((s) => ({ ...s, status: "failed", message: String(e) }));
+    } finally {
+      setIsLaunching(false);
+    }
+  };
+
   const openStream = (runId: string) => {
     esRef.current?.close();
     setState((s) => ({ ...s, runId, status: "running", personas: new Map(), recommendations: [] }));
@@ -77,6 +93,7 @@ export function DashApp() {
         state={state}
         isLaunching={isLaunching}
         onRun={startRun}
+        onReplay={startReplay}
         personaCount={personas.length}
       />
 
