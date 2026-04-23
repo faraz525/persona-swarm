@@ -33,6 +33,14 @@ type ThemeSignal = {
   confusion?: number;
 };
 
+type ThemeGroup = {
+  count: number;
+  firstSeen: number;
+  label: string;
+  liveSeverities: EmergingTheme["severity"][];
+  recommendationSeverity?: EmergingTheme["severity"];
+};
+
 const THEME_BUCKETS: ThemeBucket[] = [
   {
     id: "pricing",
@@ -97,10 +105,7 @@ export function deriveEmergingThemes(state: RunState): EmergingTheme[] {
     ...collectLiveThemeSignals(Array.from(state.personas.values())),
     ...collectRecommendationThemeSignals(state.recommendations),
   ];
-  const grouped = new Map<
-    string,
-    { count: number; firstSeen: number; severity: EmergingTheme["severity"]; label: string }
-  >();
+  const grouped = new Map<string, ThemeGroup>();
 
   for (const [index, signal] of signals.entries()) {
     const bucket = THEME_BUCKETS.find((candidate) => candidate.id === signal.id);
@@ -109,18 +114,22 @@ export function deriveEmergingThemes(state: RunState): EmergingTheme[] {
     const existing = grouped.get(signal.id) ?? {
       count: 0,
       firstSeen: index,
-      severity: "low" as EmergingTheme["severity"],
       label: bucket.label,
+      liveSeverities: [],
     };
-    const nextSeverity =
-      signal.source === "recommendation" || !hasRecommendations
-        ? signal.severity ?? inferSignalSeverity(signal.confusion)
-        : inferSignalSeverity(signal.confusion);
+    const signalSeverity = signal.severity ?? inferSignalSeverity(signal.confusion);
 
     grouped.set(signal.id, {
       ...existing,
       count: existing.count + 1,
-      severity: maxSeverity(existing.severity, nextSeverity),
+      liveSeverities:
+        signal.source === "live"
+          ? [...existing.liveSeverities, signalSeverity]
+          : existing.liveSeverities,
+      recommendationSeverity:
+        signal.source === "recommendation"
+          ? maxOptionalSeverity(existing.recommendationSeverity, signalSeverity)
+          : existing.recommendationSeverity,
     });
   }
 
@@ -130,7 +139,9 @@ export function deriveEmergingThemes(state: RunState): EmergingTheme[] {
       label: theme.label,
       count: theme.count,
       firstSeen: theme.firstSeen,
-      severity: theme.severity,
+      severity:
+        theme.recommendationSeverity ??
+        inferRepeatedLiveSeverity(theme.liveSeverities, hasRecommendations),
     }))
     .sort((a, b) => {
       const severityDelta = SEVERITY_RANK[b.severity] - SEVERITY_RANK[a.severity];
@@ -210,11 +221,13 @@ function collectLiveThemeSignals(personas: PersonaLive[]): ThemeSignal[] {
 
       if (step.kind === "verdict") {
         const text = step.reasons.join(" ");
+        const severity: EmergingTheme["severity"] =
+          step.outcome === "converted" ? "low" : "medium";
         signals.push(
           ...matchingThemeIds(text).map((id) => ({
             id,
             source: "live" as const,
-            severity: step.outcome === "converted" ? "low" : "medium",
+            severity,
           })),
         );
       }
@@ -256,6 +269,22 @@ function inferSignalSeverity(confusion = 0): EmergingTheme["severity"] {
   if (confusion >= 0.75) return "high";
   if (confusion >= 0.5) return "medium";
   return "low";
+}
+
+function inferRepeatedLiveSeverity(
+  severities: EmergingTheme["severity"][],
+  hasRecommendations: boolean,
+): EmergingTheme["severity"] {
+  const strongest = severities.reduce<EmergingTheme["severity"]>(maxSeverity, "low");
+  if (hasRecommendations || severities.length < 2 || strongest === "high") return strongest;
+  return strongest === "medium" ? "high" : "medium";
+}
+
+function maxOptionalSeverity(
+  a: EmergingTheme["severity"] | undefined,
+  b: EmergingTheme["severity"],
+): EmergingTheme["severity"] {
+  return a ? maxSeverity(a, b) : b;
 }
 
 function maxSeverity(

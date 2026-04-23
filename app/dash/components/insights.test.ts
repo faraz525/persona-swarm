@@ -274,4 +274,83 @@ describe("deriveEmergingThemes", () => {
       { id: "integrations", label: "Integrations", count: 1, severity: "medium" },
     ]);
   });
+
+  it("keeps recommendation severity authoritative when matching live signals are more severe", () => {
+    const themes = deriveEmergingThemes(
+      state(
+        [
+          live("founder", {
+            status: "running",
+            steps: [
+              think(
+                "founder",
+                1,
+                "Pricing and trial billing are extremely confusing",
+                0.95,
+              ),
+            ],
+          }),
+        ],
+        [
+          recommendation(
+            "rec-pricing",
+            "low",
+            "Clarify pricing footnote",
+            "Trial billing language needs a small copy fix.",
+          ),
+        ],
+      ),
+    );
+
+    expect(themes.find((theme) => theme.id === "pricing")).toEqual({
+      id: "pricing",
+      label: "Pricing",
+      count: 2,
+      severity: "low",
+    });
+  });
+
+  it("raises repeated low live-only signals to medium when recommendations are absent", () => {
+    const themes = deriveEmergingThemes(
+      state([
+        live("buyer-one", {
+          status: "running",
+          steps: [think("buyer-one", 1, "Pricing mentions seat cost but not enough detail", 0.25)],
+        }),
+        live("buyer-two", {
+          status: "running",
+          steps: [think("buyer-two", 1, "Billing and trial copy need a closer read", 0.3)],
+        }),
+      ]),
+    );
+
+    expect(themes.find((theme) => theme.id === "pricing")).toEqual({
+      id: "pricing",
+      label: "Pricing",
+      count: 2,
+      severity: "medium",
+    });
+  });
+
+  it("raises repeated medium live-only signals to high when recommendations are absent", () => {
+    const themes = deriveEmergingThemes(
+      state([
+        live("ops", {
+          status: "running",
+          steps: [think("ops", 1, "Security compliance details are hard to verify", 0.55)],
+        }),
+        live("legal", {
+          status: "running",
+          steps: [think("legal", 1, "GDPR and data residency proof is incomplete", 0.65)],
+        }),
+      ]),
+    );
+
+    expect(themes.find((theme) => theme.id === "trust")).toEqual({
+      id: "trust",
+      label: "Trust",
+      count: 2,
+      severity: "high",
+    });
+  });
 });
