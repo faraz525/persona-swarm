@@ -259,10 +259,26 @@ function collectRecommendationThemeSignals(recommendations: Recommendation[]): T
 }
 
 function matchingThemeIds(text: string): string[] {
-  const lower = text.toLowerCase();
+  const tokens = tokenize(text);
   return THEME_BUCKETS.filter((bucket) =>
-    bucket.keywords.some((keyword) => lower.includes(keyword)),
+    bucket.keywords.some((keyword) => matchesKeyword(tokens, keyword)),
   ).map((bucket) => bucket.id);
+}
+
+function tokenize(text: string): string[] {
+  return text.toLowerCase().match(/[a-z0-9]+/g) ?? [];
+}
+
+function matchesKeyword(tokens: string[], keyword: string): boolean {
+  const keywordTokens = tokenize(keyword);
+  if (keywordTokens.length === 0 || keywordTokens.length > tokens.length) return false;
+
+  for (let start = 0; start <= tokens.length - keywordTokens.length; start += 1) {
+    const matches = keywordTokens.every((token, index) => tokens[start + index] === token);
+    if (matches) return true;
+  }
+
+  return false;
 }
 
 function inferSignalSeverity(confusion = 0): EmergingTheme["severity"] {

@@ -353,4 +353,61 @@ describe("deriveEmergingThemes", () => {
       severity: "high",
     });
   });
+
+  it("does not match developer proof from words like rapid or capabilities", () => {
+    const runState = state([
+      live("buyer", {
+        status: "running",
+        steps: [
+          think(
+            "buyer",
+            1,
+            "The page describes rapid setup capabilities but no concrete workflow",
+            0.9,
+          ),
+        ],
+      }),
+    ]);
+    const themes = deriveEmergingThemes(runState);
+
+    expect(themes.find((theme) => theme.id === "developer-proof")).toBeUndefined();
+    expect(deriveExecutiveSummary(runState).topBlocker).toBe("No blocker identified");
+  });
+
+  it("does not match trust from words like social", () => {
+    const runState = state([
+      live("founder", {
+        status: "running",
+        steps: [think("founder", 1, "The social testimonials feel vague", 0.85)],
+      }),
+    ]);
+    const themes = deriveEmergingThemes(runState);
+
+    expect(themes.find((theme) => theme.id === "trust")).toBeUndefined();
+    expect(deriveExecutiveSummary(runState).topBlocker).toBe("No blocker identified");
+  });
+
+  it("still matches standalone keywords and multi-word phrases", () => {
+    const themes = deriveEmergingThemes(
+      state([
+        live("cto", {
+          status: "running",
+          steps: [
+            think(
+              "cto",
+              1,
+              "Need API reference docs, SOC compliance, data residency, and credit card terms",
+              0.8,
+            ),
+          ],
+        }),
+      ]),
+    );
+
+    expect(themes.map((theme) => theme.id)).toEqual([
+      "pricing",
+      "trust",
+      "developer-proof",
+    ]);
+  });
 });
