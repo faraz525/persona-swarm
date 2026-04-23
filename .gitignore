@@ -46,3 +46,6 @@ next-env.d.ts
 
 # local Claude Code session state
 /.claude/
+
+# local feature worktrees
+/.worktrees/
