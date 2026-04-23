@@ -51,7 +51,7 @@ Expected: `vitest` is added to `devDependencies` and `pnpm-lock.yaml` updates.
 In `package.json`, add:
 
 ```json
-"test": "vitest run"
+"test": "vitest run --passWithNoTests"
 ```
 
 Keep existing scripts unchanged.
@@ -61,7 +61,7 @@ Keep existing scripts unchanged.
 Run:
 
 ```bash
-pnpm test -- --passWithNoTests
+pnpm test
 ```
 
 Expected: Vitest exits successfully with no tests found.
