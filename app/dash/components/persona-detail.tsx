@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { PersonaLive } from "./types";
 
 export function PersonaDetail({ live }: { live: PersonaLive }) {
@@ -9,61 +10,61 @@ export function PersonaDetail({ live }: { live: PersonaLive }) {
     | undefined;
 
   return (
-    <section className="rounded-xl border border-slate-200 bg-white">
-      <header className="flex items-start justify-between border-b border-slate-200 p-5">
+    <section className="rounded-lg border border-slate-200 bg-white shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+      <header className="flex items-start justify-between gap-4 border-b border-slate-200 p-5">
         <div>
-          <h3 className="text-base font-semibold text-slate-900">{persona.name}</h3>
-          <p className="mt-1 text-xs text-slate-500">{persona.role}</p>
-          <p className="mt-3 max-w-md text-sm text-slate-600">
-            <span className="font-medium text-slate-800">Goal:</span> {persona.primary_goal}
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Evidence trail
           </p>
+          <h3 className="mt-2 text-base font-semibold text-slate-950">{persona.name}</h3>
+          <p className="mt-1 text-xs leading-5 text-slate-500">{persona.role}</p>
         </div>
         {outcome && (
-          <div className="text-right">
+          <div className="shrink-0 text-right">
             <div
-              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ${
+              className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold ring-1 ${
                 outcome === "converted"
-                  ? "bg-emerald-100 text-emerald-700"
+                  ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
                   : outcome === "bounced"
-                    ? "bg-amber-100 text-amber-700"
-                    : "bg-violet-100 text-violet-700"
+                    ? "bg-amber-50 text-amber-700 ring-amber-200"
+                    : "bg-violet-50 text-violet-700 ring-violet-200"
               }`}
             >
               {outcome}
             </div>
             {rating !== undefined && (
-              <div className="mt-1 text-xs text-amber-500">
-                {"★".repeat(rating)}
-                {"☆".repeat(5 - rating)}
-              </div>
+              <div className="mt-1 text-xs text-slate-500">rating {rating}/5</div>
             )}
           </div>
         )}
       </header>
 
       {latestScreenshot && (
-        <div className="border-b border-slate-200 bg-slate-100 p-4">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+        <div className="border-b border-slate-200 bg-slate-50 p-4">
+          <Image
             src={latestScreenshot.screenshotPath}
             alt={`step ${latestScreenshot.step}`}
-            className="w-full rounded-lg border border-slate-200 shadow-sm"
+            width={960}
+            height={640}
+            priority
+            unoptimized
+            className="h-auto w-full rounded-md border border-slate-200 bg-white shadow-sm"
           />
           <p className="mt-2 text-xs text-slate-500">
-            step {latestScreenshot.step} · {latestScreenshot.viewport.url}
+            step {latestScreenshot.step} - {latestScreenshot.viewport.url}
           </p>
         </div>
       )}
 
       {reasons && reasons.length > 0 && (
         <div className="border-b border-slate-200 p-5">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
             Verdict reasons
           </p>
           <ul className="mt-2 space-y-1 text-sm text-slate-700">
             {reasons.map((r, i) => (
               <li key={i} className="flex gap-2">
-                <span className="text-slate-400">—</span>
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-300" />
                 <span>{r}</span>
               </li>
             ))}
@@ -72,7 +73,9 @@ export function PersonaDetail({ live }: { live: PersonaLive }) {
       )}
 
       <div className="max-h-96 overflow-y-auto p-5">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Journey</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+          Full journey
+        </p>
         <ol className="mt-3 space-y-3">
           {steps.map((s, i) => (
             <StepRow key={i} step={s} />
@@ -101,7 +104,7 @@ function StepRow({ step }: { step: PersonaLive["steps"][number] }) {
   if (step.kind === "think") {
     body = (
       <>
-        <p className="italic text-slate-700">“{step.thought}”</p>
+        <p className="text-slate-700">{step.thought}</p>
         <div className="mt-1 flex gap-3 text-xs">
           <span className={sentimentTone(step.sentiment)}>
             sentiment {step.sentiment.toFixed(2)}
@@ -115,7 +118,7 @@ function StepRow({ step }: { step: PersonaLive["steps"][number] }) {
       <>
         <p className="text-slate-700">
           <span className="font-medium">{step.action}</span>{" "}
-          <span className="text-slate-500">→ {step.target}</span>
+          <span className="text-slate-500">{step.target}</span>
         </p>
         <p className="mt-1 text-sm text-slate-600">{step.rationale}</p>
       </>
@@ -123,24 +126,24 @@ function StepRow({ step }: { step: PersonaLive["steps"][number] }) {
   } else if (step.kind === "verdict") {
     body = (
       <p className="text-slate-700">
-        <span className="font-medium">{step.outcome}</span> · {step.reasons.join("; ")} ·{" "}
+        <span className="font-medium">{step.outcome}</span> - {step.reasons.join("; ")} -{" "}
         {step.rating} stars
       </p>
     );
   } else if (step.kind === "perceive") {
     body = (
       <p className="text-xs text-slate-500">
-        perceived: {step.viewport.title || step.viewport.url} · scrollY{" "}
+        perceived: {step.viewport.title || step.viewport.url} - scrollY{" "}
         {step.viewport.scrollY}
       </p>
     );
   }
 
   return (
-    <li className="border-l-2 border-slate-200 pl-4">
-      <div className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-wider ${headerClass}`}>
+    <li className="border-l border-slate-200 pl-4">
+      <div className={`flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] ${headerClass}`}>
         <span>step {step.step}</span>
-        <span className="text-slate-300">·</span>
+        <span className="text-slate-300">/</span>
         <span>{step.kind}</span>
         <span className="ml-auto text-slate-400">{ts}</span>
       </div>

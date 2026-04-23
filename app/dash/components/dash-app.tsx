@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { PersonaLive, RunState, StreamEvent } from "./types";
+import {
+  deriveEmergingThemes,
+  deriveExecutiveSummary,
+  selectFocusPersona,
+} from "./insights";
 import { RunHeader } from "./run-header";
+import { ExecutiveSummary } from "./executive-summary";
+import { EmergingThemes } from "./emerging-themes";
+import { FocusRail } from "./focus-rail";
 import { PersonaGrid } from "./persona-grid";
 import { PersonaDetail } from "./persona-detail";
 import { RecommendationsPanel } from "./recommendations-panel";
@@ -25,6 +33,30 @@ export function DashApp() {
     };
   }, []);
 
+  const openStream = useCallback((runId: string, opts: { paced?: boolean } = {}) => {
+    esRef.current?.close();
+    setState({ runId, status: "running", personas: new Map(), recommendations: [] });
+
+    const qs = opts.paced ? "?paced=1" : "";
+    const es = new EventSource(`/api/runs/${runId}/sse${qs}`);
+    esRef.current = es;
+
+    es.onmessage = (ev) => {
+      if (!ev.data) return;
+      let event: StreamEvent;
+      try {
+        event = JSON.parse(ev.data);
+      } catch {
+        return;
+      }
+      setState((prev) => applyEvent(prev, event));
+    };
+
+    es.onerror = () => {
+      es.close();
+    };
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const url = new URL(window.location.href);
@@ -32,8 +64,7 @@ export function DashApp() {
     if (!runId) return;
     const paced = url.searchParams.get("paced") === "1";
     openStream(runId, { paced });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [openStream]);
 
   const startRun = async () => {
     setIsLaunching(true);
@@ -60,35 +91,16 @@ export function DashApp() {
     openStream("fixture", { paced: true });
   };
 
-  const openStream = (runId: string, opts: { paced?: boolean } = {}) => {
-    esRef.current?.close();
-    setState({ runId, status: "running", personas: new Map(), recommendations: [] });
-
-    const qs = opts.paced ? "?paced=1" : "";
-    const es = new EventSource(`/api/runs/${runId}/sse${qs}`);
-    esRef.current = es;
-
-    es.onmessage = (ev) => {
-      if (!ev.data) return;
-      let event: StreamEvent;
-      try {
-        event = JSON.parse(ev.data);
-      } catch {
-        return;
-      }
-      setState((prev) => applyEvent(prev, event));
-    };
-
-    es.onerror = () => {
-      es.close();
-    };
-  };
-
   const personas = useMemo(() => Array.from(state.personas.values()), [state.personas]);
-  const selected = selectedPersonaId ? state.personas.get(selectedPersonaId) ?? null : null;
+  const summary = useMemo(() => deriveExecutiveSummary(state), [state]);
+  const themes = useMemo(() => deriveEmergingThemes(state), [state]);
+  const focus = useMemo(
+    () => selectFocusPersona(personas, selectedPersonaId),
+    [personas, selectedPersonaId],
+  );
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-8">
+    <div className="mx-auto flex max-w-[1500px] flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
       <RunHeader
         state={state}
         isLaunching={isLaunching}
@@ -97,44 +109,26 @@ export function DashApp() {
         personaCount={personas.length}
       />
 
-      {personas.length > 0 && (
-        <div className="mt-8 grid gap-6 lg:grid-cols-[1.3fr_2fr]">
+      <ExecutiveSummary summary={summary} status={state.status} themes={themes} />
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)]">
+        <div>
           <PersonaGrid
             personas={personas}
             selectedId={selectedPersonaId}
             onSelect={setSelectedPersonaId}
           />
-          <div className="space-y-6">
-            {selected ? (
-              <PersonaDetail live={selected} />
-            ) : (
-              <EmptyPanel
-                title="Click a persona to see their journey"
-                hint="You'll see screenshots, step-by-step thoughts, and the final verdict."
-              />
-            )}
-            <FunnelChart personas={personas} />
-          </div>
         </div>
-      )}
 
-      {personas.length > 0 && (
-        <div className="mt-6">
-          <RecommendationsPanel
-            recommendations={state.recommendations}
-            status={state.status}
-          />
+        <div className="space-y-6">
+          <FocusRail live={focus} status={state.status} />
+          <EmergingThemes themes={themes} status={state.status} />
+          <FunnelChart personas={personas} />
+          {focus && <PersonaDetail live={focus} />}
         </div>
-      )}
-    </div>
-  );
-}
+      </div>
 
-function EmptyPanel({ title, hint }: { title: string; hint: string }) {
-  return (
-    <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center">
-      <p className="text-base font-medium text-slate-900">{title}</p>
-      <p className="mt-1 text-sm text-slate-500">{hint}</p>
+      <RecommendationsPanel recommendations={state.recommendations} status={state.status} />
     </div>
   );
 }

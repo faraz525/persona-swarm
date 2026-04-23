@@ -1,0 +1,222 @@
+import Image from "next/image";
+import type { PersonaLive, RunState } from "./types";
+
+type Props = {
+  live: PersonaLive | null;
+  status: RunState["status"];
+};
+
+type PerceiveStep = Extract<PersonaLive["steps"][number], { kind: "perceive" }>;
+
+export function FocusRail({ live, status }: Props) {
+  if (!live) return <PreRunFocus status={status} />;
+
+  const { persona, steps, outcome, reasons } = live;
+  const latestScreenshot = findLatestScreenshot(steps);
+  const latestSignal = findLatestSignal(steps);
+  const journey = steps.slice(-5);
+
+  return (
+    <section className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
+      <div className="border-b border-slate-200 p-5">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+              Focus persona
+            </p>
+            <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">
+              {persona.name}
+            </h2>
+            <p className="mt-1 text-sm text-slate-600">{persona.role}</p>
+          </div>
+          <OutcomePill status={live.status} outcome={outcome} />
+        </div>
+        <p className="mt-4 text-sm leading-6 text-slate-700">
+          <span className="font-medium text-slate-950">Goal:</span> {persona.primary_goal}
+        </p>
+      </div>
+
+      {latestScreenshot ? (
+        <div className="border-b border-slate-200 bg-slate-100 p-3">
+          <div className="overflow-hidden rounded-md border border-slate-200 bg-white">
+            <Image
+              src={latestScreenshot.screenshotPath}
+              alt={`${persona.name} browser evidence`}
+              width={960}
+              height={640}
+              priority
+              unoptimized
+              className="h-auto w-full"
+            />
+          </div>
+          <p className="mt-2 truncate text-xs text-slate-500">
+            step {latestScreenshot.step} - {latestScreenshot.viewport.title || latestScreenshot.viewport.url}
+          </p>
+        </div>
+      ) : (
+        <div className="border-b border-slate-200 bg-slate-50 p-5">
+          <div className="rounded-md border border-slate-200 bg-white p-5">
+            <p className="text-sm font-medium text-slate-900">Browser evidence pending</p>
+            <p className="mt-1 text-sm leading-6 text-slate-500">
+              The first screenshot appears once this buyer lands on the target page.
+            </p>
+          </div>
+        </div>
+      )}
+
+      <div className="space-y-5 p-5">
+        <SignalBlock signal={latestSignal} />
+
+        {outcome && reasons && reasons.length > 0 && (
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+              Verdict reasons
+            </p>
+            <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-700">
+              {reasons.slice(0, 3).map((reason) => (
+                <li key={reason} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+                  <span>{reason}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div className="rounded-md bg-slate-50 p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Why it matters
+          </p>
+          <p className="mt-2 text-sm leading-6 text-slate-700">
+            {whyItMatters(live)}
+          </p>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+            Journey
+          </p>
+          {journey.length === 0 ? (
+            <p className="mt-2 text-sm text-slate-500">Waiting for the first browser step.</p>
+          ) : (
+            <ol className="mt-3 space-y-2">
+              {journey.map((step) => (
+                <li key={`${step.kind}-${step.step}-${step.ts}`} className="flex gap-3 text-sm">
+                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-slate-300" />
+                  <div className="min-w-0">
+                    <p className="font-medium capitalize text-slate-800">
+                      {step.kind} <span className="font-normal text-slate-400">step {step.step}</span>
+                    </p>
+                    <p className="line-clamp-2 text-xs leading-5 text-slate-500">
+                      {describeStep(step)}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PreRunFocus({ status }: { status: RunState["status"] }) {
+  return (
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
+        Focus persona
+      </p>
+      <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">
+        Flagship scenario preview
+      </h2>
+      <p className="mt-2 text-sm leading-6 text-slate-600">
+        FlowLens will be evaluated by seven synthetic buyer lenses spanning finance,
+        compliance, marketing, engineering, design, founder, and student evaluators.
+      </p>
+      <div className="mt-5 rounded-md border border-slate-200 bg-slate-50 p-4">
+        <p className="text-sm font-medium text-slate-900">Expected focus</p>
+        <p className="mt-1 text-sm leading-6 text-slate-600">
+          The rail will promote the buyer with the freshest verdict, strongest confusion,
+          or active evidence trail. Current status: {status}.
+        </p>
+      </div>
+      <ol className="mt-5 space-y-2 text-sm text-slate-600">
+        <li>1. Personas land on the target page in real browsers.</li>
+        <li>2. Thoughts, actions, screenshots, and verdicts stream into this rail.</li>
+        <li>3. The final pass turns repeated friction into ranked fixes.</li>
+      </ol>
+    </section>
+  );
+}
+
+function OutcomePill({
+  status,
+  outcome,
+}: {
+  status: PersonaLive["status"];
+  outcome: PersonaLive["outcome"];
+}) {
+  const label = outcome ?? status;
+  const tone =
+    outcome === "converted"
+      ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
+      : outcome === "bounced"
+        ? "bg-amber-50 text-amber-700 ring-amber-200"
+        : outcome === "confused"
+          ? "bg-violet-50 text-violet-700 ring-violet-200"
+          : status === "error"
+            ? "bg-rose-50 text-rose-700 ring-rose-200"
+            : "bg-slate-50 text-slate-600 ring-slate-200";
+
+  return (
+    <span className={`rounded-full px-3 py-1 text-xs font-semibold ring-1 ${tone}`}>
+      {label}
+    </span>
+  );
+}
+
+function SignalBlock({ signal }: { signal: PersonaLive["steps"][number] | undefined }) {
+  return (
+    <div>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+        Latest signal
+      </p>
+      <p className="mt-2 text-sm leading-6 text-slate-700">
+        {signal ? describeStep(signal) : "Waiting for the first thought, action, or verdict."}
+      </p>
+    </div>
+  );
+}
+
+function findLatestScreenshot(steps: PersonaLive["steps"]): PerceiveStep | undefined {
+  return [...steps].reverse().find((step): step is PerceiveStep => step.kind === "perceive");
+}
+
+function findLatestSignal(steps: PersonaLive["steps"]) {
+  return [...steps]
+    .reverse()
+    .find((step) => step.kind === "think" || step.kind === "act" || step.kind === "verdict");
+}
+
+function whyItMatters(live: PersonaLive): string {
+  if (live.outcome === "converted") {
+    return "This buyer found enough proof to proceed, so their path shows what the page should make easier for others.";
+  }
+  if (live.outcome === "bounced") {
+    return "This buyer left before resolving a purchase question, which points to commercial friction the page can remove.";
+  }
+  if (live.outcome === "confused") {
+    return "This buyer stayed engaged but could not form a clear decision, making the gap useful for copy and proof prioritization.";
+  }
+  return live.persona.objections[0]
+    ? `This buyer is actively testing a known objection: ${live.persona.objections[0]}.`
+    : "This buyer is still forming a decision, so the latest signal helps explain where attention is moving.";
+}
+
+function describeStep(step: PersonaLive["steps"][number]): string {
+  if (step.kind === "think") return step.thought;
+  if (step.kind === "act") return `${step.action} ${step.target}: ${step.rationale}`;
+  if (step.kind === "verdict") return `${step.outcome}: ${step.reasons.join("; ")} (${step.rating}/5)`;
+  return step.viewport.title || step.viewport.url;
+}

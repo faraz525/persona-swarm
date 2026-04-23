@@ -8,22 +8,37 @@ type Props = {
 
 export function PersonaGrid({ personas, selectedId, onSelect }: Props) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <div className="flex items-baseline justify-between">
-        <h2 className="text-sm font-semibold text-slate-900">Swarm</h2>
-        <span className="text-xs text-slate-500">{personas.length} personas</span>
+    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+      <div className="flex items-baseline justify-between gap-4">
+        <div>
+          <h2 className="text-sm font-semibold text-slate-950">Buyer lenses</h2>
+          <p className="mt-1 text-xs leading-5 text-slate-500">
+            Persona-level pressure tests of the FlowLens page.
+          </p>
+        </div>
+        <span className="text-xs font-medium text-slate-500">{personas.length || 7} lenses</span>
       </div>
-      <ul className="mt-4 space-y-2">
-        {personas.map((p) => (
-          <PersonaCard
-            key={p.persona.id}
-            live={p}
-            selected={selectedId === p.persona.id}
-            onClick={() => onSelect(p.persona.id)}
-          />
-        ))}
-      </ul>
-    </div>
+      {personas.length === 0 ? (
+        <div className="mt-4 rounded-md border border-slate-200 bg-slate-50 p-4">
+          <p className="text-sm font-medium text-slate-900">Ready to launch seven lenses</p>
+          <p className="mt-1 text-sm leading-6 text-slate-600">
+            Finance, compliance, marketing, engineering, design, founder, and student buyers
+            will stream here as the run starts.
+          </p>
+        </div>
+      ) : (
+        <ul className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {personas.map((p) => (
+            <PersonaCard
+              key={p.persona.id}
+              live={p}
+              selected={selectedId === p.persona.id}
+              onClick={() => onSelect(p.persona.id)}
+            />
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 
@@ -45,60 +60,73 @@ function PersonaCard({
       <button
         type="button"
         onClick={onClick}
-        className={`w-full rounded-lg border p-3 text-left transition ${
+        className={`flex h-full min-h-56 w-full flex-col rounded-lg border p-4 text-left transition ${
           selected
-            ? "border-indigo-500 bg-indigo-50/50"
-            : "border-slate-200 bg-white hover:border-slate-300"
+            ? "border-indigo-400 bg-indigo-50/60 shadow-[0_10px_24px_rgba(79,70,229,0.10)]"
+            : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
         }`}
       >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex min-w-0 items-center gap-3">
             <Avatar id={persona.id} />
-            <div>
-              <div className="text-sm font-semibold text-slate-900">{persona.name}</div>
-              <div className="text-xs text-slate-500">{persona.role}</div>
+            <div className="min-w-0">
+              <div className="truncate text-sm font-semibold text-slate-950">{persona.name}</div>
+              <div className="mt-0.5 line-clamp-2 text-xs leading-5 text-slate-500">
+                {persona.role}
+              </div>
             </div>
           </div>
           <StatusChip status={status} outcome={outcome} />
         </div>
-        <div className="mt-3 flex items-center justify-between text-xs">
-          <span className="text-slate-500">
+
+        <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-700">
+          {persona.primary_goal}
+        </p>
+
+        <div className="mt-auto pt-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+            Latest signal
+          </p>
+          <p className="mt-1 line-clamp-2 min-h-10 text-xs leading-5 text-slate-600">
+            {latestLabel ?? "Waiting for browser evidence."}
+          </p>
+        </div>
+
+        <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-500">
+          <span>
             {steps.length} step{steps.length === 1 ? "" : "s"}
           </span>
-          {rating !== undefined && (
-            <span className="text-amber-600">{"★".repeat(rating)}{"☆".repeat(5 - rating)}</span>
-          )}
+          <span>{rating !== undefined ? `rating ${rating}/5` : statusLabel(status)}</span>
         </div>
-        {latestLabel && (
-          <p className="mt-2 line-clamp-2 text-xs text-slate-600">{latestLabel}</p>
-        )}
       </button>
     </li>
   );
 }
 
 function Avatar({ id }: { id: string }) {
-  const color = avatarColor(id);
   const initials = id
     .split("-")
     .map((w) => w[0]?.toUpperCase() ?? "")
     .slice(0, 2)
     .join("");
   return (
-    <div
-      className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold text-white"
-      style={{ background: color }}
-    >
+    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${avatarTone(id)}`}>
       {initials}
     </div>
   );
 }
 
-function avatarColor(id: string): string {
+function avatarTone(id: string): string {
+  const tones = [
+    "bg-slate-100 text-slate-700 ring-1 ring-slate-200",
+    "bg-indigo-50 text-indigo-700 ring-1 ring-indigo-100",
+    "bg-emerald-50 text-emerald-700 ring-1 ring-emerald-100",
+    "bg-amber-50 text-amber-700 ring-1 ring-amber-100",
+    "bg-sky-50 text-sky-700 ring-1 ring-sky-100",
+  ];
   let hash = 0;
   for (const ch of id) hash = (hash * 31 + ch.charCodeAt(0)) | 0;
-  const hue = Math.abs(hash) % 360;
-  return `linear-gradient(135deg, hsl(${hue}, 70%, 55%), hsl(${(hue + 40) % 360}, 70%, 45%))`;
+  return tones[Math.abs(hash) % tones.length];
 }
 
 function StatusChip({
@@ -110,14 +138,14 @@ function StatusChip({
 }) {
   if (status === "running") {
     return (
-      <span className="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700">
+      <span className="shrink-0 rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-700 ring-1 ring-blue-200">
         running
       </span>
     );
   }
   if (status === "error") {
     return (
-      <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-medium text-rose-700">
+      <span className="shrink-0 rounded-full bg-rose-50 px-2 py-0.5 text-xs font-medium text-rose-700 ring-1 ring-rose-200">
         error
       </span>
     );
@@ -125,23 +153,34 @@ function StatusChip({
   if (status === "done" && outcome) {
     const tone =
       outcome === "converted"
-        ? "bg-emerald-100 text-emerald-700"
+        ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
         : outcome === "bounced"
-          ? "bg-amber-100 text-amber-700"
-          : "bg-violet-100 text-violet-700";
+          ? "bg-amber-50 text-amber-700 ring-amber-200"
+          : "bg-violet-50 text-violet-700 ring-violet-200";
     return (
-      <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${tone}`}>{outcome}</span>
+      <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ring-1 ${tone}`}>
+        {outcome}
+      </span>
     );
   }
-  return <span className="text-xs text-slate-400">queued</span>;
+  return (
+    <span className="shrink-0 rounded-full bg-slate-50 px-2 py-0.5 text-xs font-medium text-slate-500 ring-1 ring-slate-200">
+      queued
+    </span>
+  );
 }
 
 function describeStep(step: PersonaLive["steps"][number] | undefined): string | null {
   if (!step) return null;
-  if (step.kind === "think") return `“${step.thought}”`;
+  if (step.kind === "think") return step.thought;
   if (step.kind === "act")
-    return `${step.action} → ${step.target}: ${step.rationale.slice(0, 120)}`;
+    return `${step.action} ${step.target}: ${step.rationale.slice(0, 120)}`;
   if (step.kind === "perceive") return step.viewport.title ? `@ ${step.viewport.title}` : null;
-  if (step.kind === "verdict") return `verdict: ${step.outcome} — ${step.reasons[0] ?? ""}`;
+  if (step.kind === "verdict") return `verdict: ${step.outcome} - ${step.reasons[0] ?? ""}`;
   return null;
+}
+
+function statusLabel(status: PersonaLive["status"]): string {
+  if (status === "pending") return "queued";
+  return status;
 }

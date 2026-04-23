@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { RunState } from "./types";
 
 type Props = {
@@ -13,52 +14,55 @@ export function RunHeader({ state, isLaunching, onRun, onReplay, personaCount }:
   const disabled = isLaunching || state.status === "running" || state.status === "aggregating";
 
   return (
-    <header className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600">
+    <header className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+      <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="min-w-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">
           Persona Swarm
-        </p>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">
-          Landing-page simulator
-        </h1>
-        <p className="mt-2 max-w-xl text-sm text-slate-500">
-          Spawns a swarm of synthetic personas against the bundled{" "}
-          <a href="/demo" className="font-medium text-indigo-600 hover:underline">
-            FlowLens landing page
-          </a>
-          , then clusters friction into actionable copy and layout recommendations.
-        </p>
-      </div>
-      <div className="flex items-center gap-4">
-        <span
-          className={`rounded-full px-3 py-1 text-xs font-medium ${statusBadge.className}`}
-          aria-live="polite"
-        >
-          {statusBadge.label}
-          {personaCount > 0 && state.status !== "idle" && (
-            <span className="ml-2 text-slate-500">
-              {personaCount} personas
-            </span>
-          )}
-        </span>
-        <button
-          type="button"
-          onClick={onReplay}
-          disabled={disabled}
-          title="Replay a recorded swarm — no Claude CLI needed"
-          className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Replay demo
-        </button>
-        <button
-          type="button"
-          onClick={onRun}
-          disabled={disabled}
-          title="Spawn a fresh swarm using the local Claude CLI"
-          className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          {isLaunching ? "Starting…" : "Run live"}
-        </button>
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Buyer friction command center
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
+            Evaluate FlowLens with seven synthetic buyer lenses, live browser evidence,
+            and ranked fixes.{" "}
+            <Link href="/demo" className="font-medium text-indigo-700 hover:text-indigo-900">
+              Inspect target page
+            </Link>
+          </p>
+        </div>
+
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-end">
+          <span
+            className={`inline-flex items-center justify-center rounded-full px-3 py-1 text-xs font-semibold ring-1 ${statusBadge.className}`}
+            aria-live="polite"
+          >
+            {statusBadge.label}
+            {personaCount > 0 && state.status !== "idle" && (
+              <span className="ml-2 text-slate-500">{personaCount} lenses</span>
+            )}
+          </span>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={onReplay}
+              disabled={disabled}
+              title="Replay a recorded flagship run without the local Claude CLI"
+              className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Replay flagship run
+            </button>
+            <button
+              type="button"
+              onClick={onRun}
+              disabled={disabled}
+              title="Spawn a fresh swarm using the local Claude CLI"
+              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {isLaunching ? "Starting..." : "Run live"}
+            </button>
+          </div>
+        </div>
       </div>
     </header>
   );
@@ -67,16 +71,16 @@ export function RunHeader({ state, isLaunching, onRun, onReplay, personaCount }:
 function statusBadgeText(status: RunState["status"]): { label: string; className: string } {
   switch (status) {
     case "idle":
-      return { label: "Idle", className: "bg-slate-100 text-slate-600" };
+      return { label: "Idle", className: "bg-slate-50 text-slate-600 ring-slate-200" };
     case "queued":
-      return { label: "Queued", className: "bg-amber-100 text-amber-800" };
+      return { label: "Queued", className: "bg-amber-50 text-amber-800 ring-amber-200" };
     case "running":
-      return { label: "Running", className: "bg-blue-100 text-blue-800" };
+      return { label: "Running", className: "bg-blue-50 text-blue-800 ring-blue-200" };
     case "aggregating":
-      return { label: "Aggregating", className: "bg-violet-100 text-violet-800" };
+      return { label: "Aggregating", className: "bg-violet-50 text-violet-800 ring-violet-200" };
     case "complete":
-      return { label: "Complete", className: "bg-emerald-100 text-emerald-800" };
+      return { label: "Complete", className: "bg-emerald-50 text-emerald-800 ring-emerald-200" };
     case "failed":
-      return { label: "Failed", className: "bg-rose-100 text-rose-800" };
+      return { label: "Failed", className: "bg-rose-50 text-rose-800 ring-rose-200" };
   }
 }
