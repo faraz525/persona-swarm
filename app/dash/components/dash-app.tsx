@@ -100,7 +100,7 @@ export function DashApp() {
   );
 
   return (
-    <div className="mx-auto flex max-w-[1500px] flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
+    <div className="mx-auto flex min-w-0 max-w-[1500px] flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8">
       <RunHeader
         state={state}
         isLaunching={isLaunching}
@@ -111,8 +111,8 @@ export function DashApp() {
 
       <ExecutiveSummary summary={summary} status={state.status} themes={themes} />
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)]">
-        <div>
+      <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.95fr)]">
+        <div className="min-w-0">
           <PersonaGrid
             personas={personas}
             selectedId={selectedPersonaId}
@@ -120,7 +120,7 @@ export function DashApp() {
           />
         </div>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <FocusRail live={focus} status={state.status} />
           <EmergingThemes themes={themes} status={state.status} />
           <FunnelChart personas={personas} />

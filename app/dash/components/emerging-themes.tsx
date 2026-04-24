@@ -25,9 +25,9 @@ export function EmergingThemes({ themes, status }: Props) {
   const visibleThemes = hasLiveThemes ? themes : plannedThemes;
 
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
-      <div className="flex items-baseline justify-between gap-4">
-        <div>
+    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+      <div className="flex min-w-0 items-baseline justify-between gap-4">
+        <div className="min-w-0">
           <h2 className="text-sm font-semibold text-slate-950">Emerging themes</h2>
           <p className="mt-1 text-xs leading-5 text-slate-500">
             {hasLiveThemes
@@ -38,7 +38,7 @@ export function EmergingThemes({ themes, status }: Props) {
           </p>
         </div>
         {hasLiveThemes && (
-          <span className="text-xs font-medium text-slate-500">
+          <span className="shrink-0 text-xs font-medium text-slate-500">
             {themes.reduce((total, theme) => total + theme.count, 0)} signals
           </span>
         )}

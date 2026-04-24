@@ -17,21 +17,21 @@ export function FocusRail({ live, status }: Props) {
   const journey = steps.slice(-5);
 
   return (
-    <section className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
+    <section className="min-w-0 overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
       <div className="border-b border-slate-200 p-5">
-        <div className="flex flex-wrap items-start justify-between gap-3">
-          <div>
+        <div className="flex min-w-0 flex-wrap items-start justify-between gap-3">
+          <div className="min-w-0">
             <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
               Focus persona
             </p>
             <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">
               {persona.name}
             </h2>
-            <p className="mt-1 text-sm text-slate-600">{persona.role}</p>
+            <p className="mt-1 break-words text-sm text-slate-600">{persona.role}</p>
           </div>
           <OutcomePill status={live.status} outcome={outcome} />
         </div>
-        <p className="mt-4 text-sm leading-6 text-slate-700">
+        <p className="mt-4 break-words text-sm leading-6 text-slate-700">
           <span className="font-medium text-slate-950">Goal:</span> {persona.primary_goal}
         </p>
       </div>
@@ -64,7 +64,7 @@ export function FocusRail({ live, status }: Props) {
         </div>
       )}
 
-      <div className="space-y-5 p-5">
+      <div className="min-w-0 space-y-5 p-5">
         <SignalBlock signal={latestSignal} />
 
         {outcome && reasons && reasons.length > 0 && (
@@ -123,14 +123,14 @@ export function FocusRail({ live, status }: Props) {
 
 function PreRunFocus({ status }: { status: RunState["status"] }) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
+    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_16px_36px_rgba(15,23,42,0.06)]">
       <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500">
         Focus persona
       </p>
       <h2 className="mt-2 text-lg font-semibold tracking-tight text-slate-950">
         Flagship scenario preview
       </h2>
-      <p className="mt-2 text-sm leading-6 text-slate-600">
+      <p className="mt-2 break-words text-sm leading-6 text-slate-600">
         FlowLens will be evaluated by seven synthetic buyer lenses spanning finance,
         compliance, marketing, engineering, design, founder, and student evaluators.
       </p>
@@ -141,7 +141,7 @@ function PreRunFocus({ status }: { status: RunState["status"] }) {
           or active evidence trail. Current status: {status}.
         </p>
       </div>
-      <ol className="mt-5 space-y-2 text-sm text-slate-600">
+      <ol className="mt-5 space-y-2 break-words text-sm text-slate-600">
         <li>1. Personas land on the target page in real browsers.</li>
         <li>2. Thoughts, actions, screenshots, and verdicts stream into this rail.</li>
         <li>3. The final pass turns repeated friction into ranked fixes.</li>

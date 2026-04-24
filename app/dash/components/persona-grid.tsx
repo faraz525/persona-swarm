@@ -8,18 +8,20 @@ type Props = {
 
 export function PersonaGrid({ personas, selectedId, onSelect }: Props) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
-      <div className="flex items-baseline justify-between gap-4">
-        <div>
+    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+      <div className="flex min-w-0 items-baseline justify-between gap-4">
+        <div className="min-w-0">
           <h2 className="text-sm font-semibold text-slate-950">Buyer lenses</h2>
           <p className="mt-1 text-xs leading-5 text-slate-500">
             Persona-level pressure tests of the FlowLens page.
           </p>
         </div>
-        <span className="text-xs font-medium text-slate-500">{personas.length || 7} lenses</span>
+        <span className="shrink-0 text-xs font-medium text-slate-500">
+          {personas.length || 7} lenses
+        </span>
       </div>
       {personas.length === 0 ? (
-        <div className="mt-4 rounded-md border border-slate-200 bg-slate-50 p-4">
+        <div className="mt-4 min-w-0 rounded-md border border-slate-200 bg-slate-50 p-4">
           <p className="text-sm font-medium text-slate-900">Ready to launch seven lenses</p>
           <p className="mt-1 text-sm leading-6 text-slate-600">
             Finance, compliance, marketing, engineering, design, founder, and student buyers
@@ -27,7 +29,7 @@ export function PersonaGrid({ personas, selectedId, onSelect }: Props) {
           </p>
         </div>
       ) : (
-        <ul className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <ul className="mt-4 grid min-w-0 gap-3 md:grid-cols-2 xl:grid-cols-3">
           {personas.map((p) => (
             <PersonaCard
               key={p.persona.id}
@@ -56,17 +58,17 @@ function PersonaCard({
   const latestLabel = describeStep(latest);
 
   return (
-    <li>
+    <li className="min-w-0">
       <button
         type="button"
         onClick={onClick}
-        className={`flex h-full min-h-56 w-full flex-col rounded-lg border p-4 text-left transition ${
+        className={`flex h-full min-h-56 w-full min-w-0 flex-col rounded-lg border p-4 text-left transition ${
           selected
             ? "border-indigo-400 bg-indigo-50/60 shadow-[0_10px_24px_rgba(79,70,229,0.10)]"
             : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
         }`}
       >
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex min-w-0 items-start justify-between gap-3">
           <div className="flex min-w-0 items-center gap-3">
             <Avatar id={persona.id} />
             <div className="min-w-0">
@@ -79,11 +81,11 @@ function PersonaCard({
           <StatusChip status={status} outcome={outcome} />
         </div>
 
-        <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-700">
+        <p className="mt-4 line-clamp-3 min-w-0 break-words text-sm leading-6 text-slate-700">
           {persona.primary_goal}
         </p>
 
-        <div className="mt-auto pt-4">
+        <div className="mt-auto min-w-0 pt-4">
           <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
             Latest signal
           </p>
@@ -92,11 +94,13 @@ function PersonaCard({
           </p>
         </div>
 
-        <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-500">
+        <div className="mt-4 flex min-w-0 items-center justify-between gap-3 border-t border-slate-100 pt-3 text-xs text-slate-500">
           <span>
             {steps.length} step{steps.length === 1 ? "" : "s"}
           </span>
-          <span>{rating !== undefined ? `rating ${rating}/5` : statusLabel(status)}</span>
+          <span className="shrink-0">
+            {rating !== undefined ? `rating ${rating}/5` : statusLabel(status)}
+          </span>
         </div>
       </button>
     </li>
@@ -110,7 +114,9 @@ function Avatar({ id }: { id: string }) {
     .slice(0, 2)
     .join("");
   return (
-    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${avatarTone(id)}`}>
+    <div
+      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-semibold ${avatarTone(id)}`}
+    >
       {initials}
     </div>
   );
