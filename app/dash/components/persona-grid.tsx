@@ -8,21 +8,21 @@ type Props = {
 
 export function PersonaGrid({ personas, selectedId, onSelect }: Props) {
   return (
-    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_8px_24px_rgba(15,23,42,0.035)]">
       <div className="flex min-w-0 items-baseline justify-between gap-4">
         <div className="min-w-0">
-          <h2 className="text-sm font-semibold text-slate-950">Buyer lenses</h2>
+          <h2 className="text-sm font-semibold text-slate-950">Buyer profiles</h2>
           <p className="mt-1 text-xs leading-5 text-slate-500">
             Persona-level pressure tests of the FlowLens page.
           </p>
         </div>
         <span className="shrink-0 text-xs font-medium text-slate-500">
-          {personas.length || 7} lenses
+          {personas.length || 7} profiles
         </span>
       </div>
       {personas.length === 0 ? (
         <div className="mt-4 min-w-0 rounded-md border border-slate-200 bg-slate-50 p-4">
-          <p className="text-sm font-medium text-slate-900">Ready to launch seven lenses</p>
+          <p className="text-sm font-medium text-slate-900">Ready to launch seven profiles</p>
           <p className="mt-1 text-sm leading-6 text-slate-600">
             Finance, compliance, marketing, engineering, design, founder, and student buyers
             will stream here as the run starts.
@@ -62,10 +62,10 @@ function PersonaCard({
       <button
         type="button"
         onClick={onClick}
-        className={`flex h-full min-h-56 w-full min-w-0 flex-col rounded-lg border p-4 text-left transition ${
+        className={`flex h-full min-h-48 w-full min-w-0 flex-col rounded-lg border p-4 text-left transition-transform focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:scale-[0.99] ${
           selected
-            ? "border-indigo-400 bg-indigo-50/60 shadow-[0_10px_24px_rgba(79,70,229,0.10)]"
-            : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-[0_10px_24px_rgba(15,23,42,0.05)]"
+            ? "border-blue-400 bg-blue-50/70 shadow-[0_10px_24px_rgba(30,64,175,0.09)]"
+            : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/60 hover:shadow-[0_10px_24px_rgba(15,23,42,0.045)]"
         }`}
       >
         <div className="flex min-w-0 items-start justify-between gap-3">
@@ -86,7 +86,7 @@ function PersonaCard({
         </p>
 
         <div className="mt-auto min-w-0 pt-4">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-400">
             Latest signal
           </p>
           <p className="mt-1 line-clamp-2 min-h-10 text-xs leading-5 text-slate-600">
@@ -94,7 +94,7 @@ function PersonaCard({
           </p>
         </div>
 
-        <div className="mt-4 flex min-w-0 items-center justify-between gap-3 border-t border-slate-100 pt-3 text-xs text-slate-500">
+        <div className="mt-4 flex min-w-0 items-center justify-between gap-3 border-t border-slate-100 pt-3 text-xs text-slate-500 tabular-nums">
           <span>
             {steps.length} step{steps.length === 1 ? "" : "s"}
           </span>
@@ -157,14 +157,8 @@ function StatusChip({
     );
   }
   if (status === "done" && outcome) {
-    const tone =
-      outcome === "converted"
-        ? "bg-emerald-50 text-emerald-700 ring-emerald-200"
-        : outcome === "bounced"
-          ? "bg-amber-50 text-amber-700 ring-amber-200"
-          : "bg-violet-50 text-violet-700 ring-violet-200";
     return (
-      <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ring-1 ${tone}`}>
+      <span className={`shrink-0 rounded-full px-2 py-0.5 text-xs font-medium ring-1 ${outcomeTone(outcome)}`}>
         {outcome}
       </span>
     );
@@ -174,6 +168,17 @@ function StatusChip({
       queued
     </span>
   );
+}
+
+function outcomeTone(outcome: NonNullable<PersonaLive["outcome"]>): string {
+  switch (outcome) {
+    case "converted":
+      return "bg-emerald-50 text-emerald-700 ring-emerald-200";
+    case "bounced":
+      return "bg-amber-50 text-amber-700 ring-amber-200";
+    case "confused":
+      return "bg-violet-50 text-violet-700 ring-violet-200";
+  }
 }
 
 function describeStep(step: PersonaLive["steps"][number] | undefined): string | null {

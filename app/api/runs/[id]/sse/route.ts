@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import { runEventBus } from "@/lib/event-bus";
+import type { CopyVariant, Recommendation, RunArtifact } from "@/lib/schemas";
 import { readArtifact } from "@/lib/storage";
 
 export const runtime = "nodejs";
@@ -60,6 +61,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
         void replayPaced({
           events: artifact.events,
           recommendations: artifact.recommendations,
+          copyVariants: artifact.copyVariants,
           runId: id,
           speed,
           send,
@@ -71,6 +73,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
       const past = runEventBus.snapshot(id);
       if (past.length === 0 && artifact.events.length) {
         for (const e of artifact.events) send(e);
+        sendStoredSynthesis(send, artifact);
       }
 
       unsubscribe = runEventBus.subscribe(id, (event) => {
@@ -89,18 +92,19 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
   });
 }
 
-type ArtifactEvent = { ts?: string; type?: string };
-type Recommendation = { id: string; severity: string; title: string; detail: string; suggestedChange: string; affectedPersonas: string[] };
+type ArtifactEvent = RunArtifact["events"][number];
+type StreamSender = (event: unknown) => void;
 
 async function replayPaced(opts: {
   events: ArtifactEvent[];
   recommendations: Recommendation[];
+  copyVariants?: CopyVariant[];
   runId: string;
   speed: number;
-  send: (event: unknown) => void;
+  send: StreamSender;
   isClosed: () => boolean;
 }): Promise<void> {
-  const { events, recommendations, runId, speed, send, isClosed } = opts;
+  const { events, recommendations, copyVariants = [], runId, speed, send, isClosed } = opts;
 
   send({
     type: "run_status",
@@ -145,12 +149,45 @@ async function replayPaced(opts: {
     recommendations,
   });
 
+  if (copyVariants.length > 0) {
+    await sleep(Math.round(500 / speed));
+    if (isClosed()) return;
+    send({
+      type: "copy_variants",
+      ts: new Date().toISOString(),
+      runId,
+      variants: copyVariants,
+    });
+  }
+
   send({
     type: "run_status",
     ts: new Date().toISOString(),
     runId,
     status: "complete",
   });
+}
+
+function sendStoredSynthesis(send: StreamSender, artifact: RunArtifact): void {
+  const ts = artifact.completedAt ?? new Date().toISOString();
+
+  if (artifact.recommendations.length > 0) {
+    send({
+      type: "recommendations",
+      ts,
+      runId: artifact.runId,
+      recommendations: artifact.recommendations,
+    });
+  }
+
+  if (artifact.copyVariants.length > 0) {
+    send({
+      type: "copy_variants",
+      ts,
+      runId: artifact.runId,
+      variants: artifact.copyVariants,
+    });
+  }
 }
 
 function tsMs(ts: string | undefined): number | null {

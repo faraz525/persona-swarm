@@ -14,19 +14,22 @@ export function RunHeader({ state, isLaunching, onRun, onReplay, personaCount }:
   const disabled = isLaunching || state.status === "running" || state.status === "aggregating";
 
   return (
-    <header className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.05)]">
+    <header className="rounded-lg border border-slate-200 bg-white p-5 shadow-[0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-indigo-600">
-          Persona Swarm
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">
+            Persona Swarm
           </p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-            Buyer friction command center
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+            Buyer page review
           </h1>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-            Evaluate FlowLens with seven synthetic buyer lenses, live browser evidence,
-            and ranked fixes.{" "}
-            <Link href="/demo" className="font-medium text-indigo-700 hover:text-indigo-900">
+            Review the FlowLens page through seven buyer profiles, then turn repeated
+            friction into prioritized fixes and copy variants.{" "}
+            <Link
+              href="/demo"
+              className="font-medium text-blue-700 underline-offset-4 hover:text-blue-900 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            >
               Inspect target page
             </Link>
           </p>
@@ -48,18 +51,18 @@ export function RunHeader({ state, isLaunching, onRun, onReplay, personaCount }:
               onClick={onReplay}
               disabled={disabled}
               title="Replay a recorded flagship run without the local Claude CLI"
-              className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-h-11 rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-transform hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Replay flagship run
+              Replay demo run
             </button>
             <button
               type="button"
               onClick={onRun}
               disabled={disabled}
               title="Spawn a fresh swarm using the local Claude CLI"
-              className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+              className="min-h-11 rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition-transform hover:border-slate-400 hover:bg-slate-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 active:scale-[0.96] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {isLaunching ? "Starting..." : "Run live"}
+              {isLaunching ? "Starting..." : "Run live review"}
             </button>
           </div>
         </div>

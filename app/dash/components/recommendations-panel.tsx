@@ -16,7 +16,7 @@ export function RecommendationsPanel({ recommendations, status }: Props) {
   const pending = status === "running" || status === "aggregating";
 
   return (
-    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_12px_30px_rgba(15,23,42,0.04)]">
+    <section className="min-w-0 rounded-lg border border-slate-200 bg-white p-5 shadow-[0_8px_24px_rgba(15,23,42,0.035)]">
       <div className="flex min-w-0 flex-wrap items-baseline justify-between gap-3">
         <div className="min-w-0">
           <h2 className="text-sm font-semibold text-slate-950">Ranked fixes</h2>
@@ -43,31 +43,40 @@ export function RecommendationsPanel({ recommendations, status }: Props) {
         </div>
       ) : (
         <ol className="mt-5 space-y-3">
-          {recommendations.map((r) => (
+          {recommendations.map((r, index) => (
             <li
               key={r.id}
-              className="overflow-hidden rounded-lg border border-slate-200 bg-white"
+              className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-[0_4px_14px_rgba(15,23,42,0.025)]"
             >
               <div className="flex min-w-0">
-                <div className={`w-1.5 shrink-0 ${severityTone[r.severity]}`} />
+                <div className={`w-1 shrink-0 ${severityTone[r.severity]}`} />
                 <div className="min-w-0 flex-1 p-4">
                   <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <p className="break-words text-sm font-semibold text-slate-950">
-                        {r.title}
-                      </p>
-                      <p className="mt-1 break-words text-sm leading-6 text-slate-600">
-                        {r.detail}
-                      </p>
+                    <div className="min-w-0 flex gap-3">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-100 text-xs font-semibold text-slate-600 ring-1 ring-slate-200 tabular-nums">
+                        {index + 1}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="break-words text-sm font-semibold text-slate-950">
+                          {r.title}
+                        </p>
+                        <p className="mt-1 break-words text-sm leading-6 text-slate-600">
+                          {r.detail}
+                        </p>
+                      </div>
                     </div>
-                    <span className="whitespace-nowrap rounded-full bg-slate-50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500 ring-1 ring-slate-200">
+                    <span className="whitespace-nowrap rounded-full bg-slate-50 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-slate-500 ring-1 ring-slate-200">
                       {r.severity}
                     </span>
                   </div>
-                  <p className="mt-3 break-words text-sm leading-6 text-slate-700">
-                    <span className="font-semibold text-slate-950">Suggested change:</span>{" "}
-                    {r.suggestedChange}
-                  </p>
+                  <div className="mt-3 rounded-md bg-slate-50 p-3 ring-1 ring-slate-200">
+                    <p className="text-xs font-semibold uppercase tracking-[0.1em] text-slate-500">
+                      Suggested change
+                    </p>
+                    <p className="mt-1 break-words text-sm leading-6 text-slate-700">
+                      {r.suggestedChange}
+                    </p>
+                  </div>
                   {r.affectedPersonas.length > 0 && (
                     <div className="mt-3 flex flex-wrap gap-1.5 text-[11px]">
                       {r.affectedPersonas.map((p) => (

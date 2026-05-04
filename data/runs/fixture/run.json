@@ -1878,5 +1878,93 @@
       "suggestedChange": "Add a dedicated integrations strip or section \u2014 ideally between the Features section and pricing \u2014 showing recognizable logos (HubSpot, Segment, Marketo, Salesforce, etc.) with a short descriptor per integration, and link to a full integrations catalog page for deeper evaluation."
     }
   ],
+  "copyVariants": [
+    {
+      "id": "a",
+      "label": "Variant A",
+      "strategy": "Clarity + trust",
+      "summary": "This version clarifies the offer, removes ambiguous pricing language, and answers the buying questions that blocked evaluators.",
+      "demoUrl": "/demo?variant=a",
+      "sections": [
+        {
+          "id": "hero-rec-2-hero",
+          "section": "hero",
+          "original": "FlowLens: unified observability with async pipelines",
+          "replacement": "See pipeline failures, spend impact, and customer risk in one live view",
+          "rationale": "Replace the placeholder hero with a concrete outcome and product preview so buyers immediately understand what FlowLens does.",
+          "evidencePersonaIds": [
+            "designer-visual-sceptic",
+            "junior-dev-comparer",
+            "student-curious"
+          ]
+        },
+        {
+          "id": "pricing-rec-1-pricing",
+          "section": "pricing",
+          "original": "$0 free forever*",
+          "replacement": "Team plan: $199/month flat rate. Starter trial: 30 days, then $29/month.",
+          "rationale": "Show explicit pricing, trial terms, and a worked example so finance and self-serve buyers can model cost without a sales call.",
+          "evidencePersonaIds": [
+            "enterprise-compliance-lead",
+            "junior-dev-comparer",
+            "designer-visual-sceptic",
+            "solo-founder-5min",
+            "skeptical-cfo"
+          ]
+        },
+        {
+          "id": "faq-rec-4-faq",
+          "section": "faq",
+          "original": "Frequently asked questions",
+          "replacement": "Add direct answers for billing cycles, trial end, seat limits, data export, downgrade policy, and student access.",
+          "rationale": "Evaluation-stage buyers need procurement and budget answers before they can continue.",
+          "evidencePersonaIds": [
+            "skeptical-cfo",
+            "student-curious"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b",
+      "label": "Variant B",
+      "strategy": "Conversion + proof",
+      "summary": "This version makes the page feel more shippable by tightening CTAs, adding proof, and exposing the ecosystem buyers expected to see.",
+      "demoUrl": "/demo?variant=b",
+      "sections": [
+        {
+          "id": "cta-rec-3-signup",
+          "section": "cta",
+          "original": "Book a demo",
+          "replacement": "Start your 30-day trial",
+          "rationale": "Use honest CTA language and give time-constrained buyers a working self-serve path.",
+          "evidencePersonaIds": [
+            "junior-dev-comparer",
+            "student-curious"
+          ]
+        },
+        {
+          "id": "trust-procurement-proof",
+          "section": "trust",
+          "original": "SSO, audit logs, custom contracts",
+          "replacement": "Add a trust strip with SOC 2 status, DPA availability, SSO, audit logs, and data residency notes.",
+          "rationale": "Procurement-minded buyers need compliance posture before they can advance.",
+          "evidencePersonaIds": [
+            "enterprise-compliance-lead"
+          ]
+        },
+        {
+          "id": "integrations-rec-5-integrations",
+          "section": "integrations",
+          "original": "Integrations are available via our Team plan and above.",
+          "replacement": "Show HubSpot, Segment, Marketo, Salesforce, Snowflake, and Datadog support.",
+          "rationale": "Marketing and ops buyers need to confirm ecosystem fit without contacting sales.",
+          "evidencePersonaIds": [
+            "marketing-lead-research"
+          ]
+        }
+      ]
+    }
+  ],
   "completedAt": "2026-04-20T22:14:00.494Z"
 }

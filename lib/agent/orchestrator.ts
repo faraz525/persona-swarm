@@ -8,6 +8,7 @@ import {
 import type { Persona, RunArtifact } from "@/lib/schemas";
 import { runPersona, launchBrowser } from "@/lib/agent/worker";
 import { aggregate } from "@/lib/aggregator";
+import { generateCopyVariants } from "@/lib/variants";
 
 const MAX_CONCURRENCY = 5;
 const STAGGER_MS = 500;
@@ -27,6 +28,7 @@ export async function createRun(personas: Persona[]): Promise<string> {
     personas,
     events: [],
     recommendations: [],
+    copyVariants: [],
   };
   await writeArtifact(artifact);
   return runId;
@@ -82,6 +84,15 @@ export async function startRunInBackground(runId: string, params: StartRunParams
       recommendations: recs,
     });
 
+    const variants = await generateCopyVariants(artifact);
+    artifact.copyVariants = variants;
+    runEventBus.publish(runId, {
+      type: "copy_variants",
+      ts: new Date().toISOString(),
+      runId,
+      variants,
+    });
+
     artifact.status = "complete";
     artifact.completedAt = new Date().toISOString();
     artifact.events = runEventBus.snapshot(runId).filter(isArtifactEvent);
@@ -109,7 +120,7 @@ export async function startRunInBackground(runId: string, params: StartRunParams
 }
 
 function isArtifactEvent(e: ReturnType<typeof runEventBus.snapshot>[number]): boolean {
-  return e.type !== "run_status" && e.type !== "recommendations";
+  return e.type !== "run_status" && e.type !== "recommendations" && e.type !== "copy_variants";
 }
 
 async function runWithConcurrency<T>(

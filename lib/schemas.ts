@@ -94,6 +94,31 @@ export const recommendationEventSchema = z.object({
   ),
 });
 
+export const copyVariantSchema = z.object({
+  id: z.enum(["a", "b"]),
+  label: z.string(),
+  strategy: z.string(),
+  summary: z.string(),
+  demoUrl: z.string(),
+  sections: z.array(
+    z.object({
+      id: z.string(),
+      section: z.enum(["hero", "cta", "pricing", "faq", "trust", "integrations"]),
+      original: z.string(),
+      replacement: z.string(),
+      rationale: z.string(),
+      evidencePersonaIds: z.array(z.string()),
+    }),
+  ),
+});
+
+export const copyVariantsEventSchema = z.object({
+  type: z.literal("copy_variants"),
+  ts: z.string(),
+  runId: z.string(),
+  variants: z.array(copyVariantSchema).length(2),
+});
+
 export const eventSchema = z.discriminatedUnion("type", [
   perceiveEventSchema,
   thinkEventSchema,
@@ -103,6 +128,7 @@ export const eventSchema = z.discriminatedUnion("type", [
   personaFinishedEventSchema,
   runStatusEventSchema,
   recommendationEventSchema,
+  copyVariantsEventSchema,
 ]);
 
 export type PerceiveEvent = z.infer<typeof perceiveEventSchema>;
@@ -113,9 +139,11 @@ export type PersonaStartedEvent = z.infer<typeof personaStartedEventSchema>;
 export type PersonaFinishedEvent = z.infer<typeof personaFinishedEventSchema>;
 export type RunStatusEvent = z.infer<typeof runStatusEventSchema>;
 export type RecommendationEvent = z.infer<typeof recommendationEventSchema>;
+export type CopyVariantsEvent = z.infer<typeof copyVariantsEventSchema>;
 export type RunEvent = z.infer<typeof eventSchema>;
 
 export type Recommendation = RecommendationEvent["recommendations"][number];
+export type CopyVariant = z.infer<typeof copyVariantSchema>;
 
 export const runArtifactSchema = z.object({
   runId: z.string(),
@@ -125,6 +153,7 @@ export const runArtifactSchema = z.object({
   personas: z.array(personaSchema),
   events: z.array(eventSchema),
   recommendations: z.array(recommendationEventSchema.shape.recommendations.element).default([]),
+  copyVariants: z.array(copyVariantSchema).default([]),
 });
 
 export type RunArtifact = z.infer<typeof runArtifactSchema>;

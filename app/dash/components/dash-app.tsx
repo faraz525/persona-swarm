@@ -14,15 +14,16 @@ import { FocusRail } from "./focus-rail";
 import { PersonaGrid } from "./persona-grid";
 import { PersonaDetail } from "./persona-detail";
 import { RecommendationsPanel } from "./recommendations-panel";
+import { VariantStudio } from "./variant-studio";
 import { FunnelChart } from "./funnel-chart";
 
+type StreamOptions = {
+  paced?: boolean;
+  speed?: number;
+};
+
 export function DashApp() {
-  const [state, setState] = useState<RunState>({
-    runId: null,
-    status: "idle",
-    personas: new Map(),
-    recommendations: [],
-  });
+  const [state, setState] = useState<RunState>(createRunState("idle"));
   const [selectedPersonaId, setSelectedPersonaId] = useState<string | null>(null);
   const [isLaunching, setIsLaunching] = useState(false);
   const esRef = useRef<EventSource | null>(null);
@@ -33,11 +34,11 @@ export function DashApp() {
     };
   }, []);
 
-  const openStream = useCallback((runId: string, opts: { paced?: boolean } = {}) => {
+  const openStream = useCallback((runId: string, opts: StreamOptions = {}) => {
     esRef.current?.close();
-    setState({ runId, status: "running", personas: new Map(), recommendations: [] });
+    setState(createRunState("running", runId));
 
-    const qs = opts.paced ? "?paced=1" : "";
+    const qs = buildStreamQuery(opts);
     const es = new EventSource(`/api/runs/${runId}/sse${qs}`);
     esRef.current = es;
 
@@ -63,13 +64,13 @@ export function DashApp() {
     const runId = url.searchParams.get("runId");
     if (!runId) return;
     const paced = url.searchParams.get("paced") === "1";
-    openStream(runId, { paced });
+    openStream(runId, { paced, speed: parseReplaySpeed(url.searchParams) });
   }, [openStream]);
 
   const startRun = async () => {
     setIsLaunching(true);
     setSelectedPersonaId(null);
-    setState({ runId: null, status: "queued", personas: new Map(), recommendations: [] });
+    setState(createRunState("queued"));
     try {
       const res = await fetch("/api/runs", {
         method: "POST",
@@ -129,8 +130,32 @@ export function DashApp() {
       </div>
 
       <RecommendationsPanel recommendations={state.recommendations} status={state.status} />
+      <VariantStudio variants={state.copyVariants} status={state.status} />
     </div>
   );
+}
+
+function createRunState(status: RunState["status"], runId: string | null = null): RunState {
+  return {
+    runId,
+    status,
+    personas: new Map(),
+    recommendations: [],
+    copyVariants: [],
+  };
+}
+
+function buildStreamQuery(opts: StreamOptions): string {
+  const params = new URLSearchParams();
+  if (opts.paced) params.set("paced", "1");
+  if (opts.speed) params.set("speed", String(opts.speed));
+  return params.size > 0 ? `?${params.toString()}` : "";
+}
+
+function parseReplaySpeed(searchParams: URLSearchParams): number | undefined {
+  const speed = Number(searchParams.get("speed"));
+  if (!Number.isFinite(speed)) return undefined;
+  return speed;
 }
 
 function applyEvent(prev: RunState, event: StreamEvent): RunState {
@@ -142,6 +167,9 @@ function applyEvent(prev: RunState, event: StreamEvent): RunState {
   }
   if (event.type === "recommendations") {
     return { ...prev, recommendations: event.recommendations };
+  }
+  if (event.type === "copy_variants") {
+    return { ...prev, copyVariants: event.variants };
   }
   if (event.type === "persona_started") {
     const next = new Map(prev.personas);
@@ -158,23 +186,25 @@ function applyEvent(prev: RunState, event: StreamEvent): RunState {
     if (existing) {
       next.set(event.personaId, {
         ...existing,
-        status: event.reason === "error" ? "error" : "done",
+        status: statusFromFinishReason(event.reason),
         finishReason: event.reason,
       });
     }
     return { ...prev, personas: next };
   }
 
-  const stepEvents: StreamEvent["type"][] = ["perceive", "think", "act", "verdict"];
-  if (!stepEvents.includes(event.type)) return prev;
+  if (!isPersonaStepEvent(event)) return prev;
 
-  const personaEvent = event as PersonaStepEvent;
+  const personaEvent = event;
   const next = new Map(prev.personas);
   const existing = next.get(personaEvent.personaId);
   if (!existing) return prev;
   const updated: PersonaLive = {
     ...existing,
-    steps: [...existing.steps, { ...personaEvent, kind: personaEvent.type } as PersonaLive["steps"][number]],
+    steps: [
+      ...existing.steps,
+      { ...personaEvent, kind: personaEvent.type } as PersonaLive["steps"][number],
+    ],
     ...(personaEvent.type === "verdict"
       ? {
           outcome: personaEvent.outcome,
@@ -185,6 +215,16 @@ function applyEvent(prev: RunState, event: StreamEvent): RunState {
   };
   next.set(personaEvent.personaId, updated);
   return { ...prev, personas: next };
+}
+
+function statusFromFinishReason(
+  reason: NonNullable<PersonaLive["finishReason"]>,
+): PersonaLive["status"] {
+  return reason === "error" ? "error" : "done";
+}
+
+function isPersonaStepEvent(event: StreamEvent): event is PersonaStepEvent {
+  return ["perceive", "think", "act", "verdict"].includes(event.type);
 }
 
 type PersonaStepEvent = Extract<

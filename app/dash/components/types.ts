@@ -9,6 +9,8 @@ import type {
   RunStatusEvent,
   RecommendationEvent,
   Recommendation,
+  CopyVariantsEvent,
+  CopyVariant,
 } from "@/lib/schemas";
 
 export type PersonaLive = {
@@ -31,6 +33,7 @@ export type RunState = {
   status: "idle" | "queued" | "running" | "aggregating" | "complete" | "failed";
   personas: Map<string, PersonaLive>;
   recommendations: Recommendation[];
+  copyVariants: CopyVariant[];
   message?: string;
 };
 
@@ -43,4 +46,5 @@ export type StreamEvent =
   | VerdictEvent
   | RunStatusEvent
   | RecommendationEvent
+  | CopyVariantsEvent
   | { type: "hello"; runId: string; status: string };

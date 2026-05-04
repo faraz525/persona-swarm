@@ -1,4 +1,10 @@
-const items = [
+import type { DemoVariant } from "./variant-copy";
+
+type Props = {
+  variant?: DemoVariant;
+};
+
+const controlItems = [
   {
     q: "What does FlowLens actually do?",
     a: "FlowLens ingests events from your services, normalizes them through schema-registered pipelines, and surfaces anomalies across the stack.",
@@ -17,7 +23,36 @@ const items = [
   },
 ];
 
-export function DemoFAQ() {
+const variantItems = [
+  {
+    q: "What does FlowLens actually do?",
+    a: "FlowLens connects traces, events, retries, schema changes, and pipeline spend so teams can spot customer-impacting async failures from one workspace.",
+  },
+  {
+    q: "What happens after the Starter trial?",
+    a: "The Starter trial runs for 30 days. After that it renews at $29/month unless you cancel before the renewal date.",
+  },
+  {
+    q: "How does Team pricing work for 50 users?",
+    a: "The Team plan is $199/month flat rate with up to 50 users included. There are no per-seat fees inside that limit.",
+  },
+  {
+    q: "Do you integrate with HubSpot, Segment, and Marketo?",
+    a: "Yes. HubSpot, Segment, Marketo, Salesforce, Snowflake, and Datadog are available on Team and Enterprise plans.",
+  },
+  {
+    q: "Are you SOC 2 compliant?",
+    a: "SOC 2 Type II is in progress. Enterprise evaluators can request the security packet, DPA, audit-log overview, and data residency details.",
+  },
+  {
+    q: "Can students or small teams use FlowLens?",
+    a: "Students can request academic access, and small teams can use Starter for one pipeline before moving to Team.",
+  },
+];
+
+export function DemoFAQ({ variant = "control" }: Props) {
+  const items = variant === "control" ? controlItems : variantItems;
+
   return (
     <section id="faq" className="border-t border-slate-200 bg-slate-50 py-20">
       <div className="mx-auto max-w-4xl px-6">

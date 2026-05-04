@@ -1,4 +1,10 @@
-const tiers = [
+import type { DemoVariant } from "./variant-copy";
+
+type Props = {
+  variant?: DemoVariant;
+};
+
+const controlTiers = [
   {
     id: "free",
     name: "Starter",
@@ -47,7 +53,60 @@ const tiers = [
   },
 ];
 
-export function DemoPricing() {
+const variantTiers = [
+  {
+    id: "starter",
+    name: "Starter Trial",
+    price: "$0",
+    period: "for 30 days",
+    description: "For validating FlowLens on one service before paid rollout.",
+    features: [
+      "1 pipeline",
+      "7-day retention",
+      "No charge during trial",
+      "$29/month after trial unless canceled",
+    ],
+    cta: "Start 30-day trial",
+    highlight: false,
+    footnote: "Credit card required. Cancel any time before renewal.",
+  },
+  {
+    id: "team",
+    name: "Team",
+    price: "$199",
+    period: "per month flat rate",
+    description: "For teams monitoring production pipelines without per-seat surprises.",
+    features: [
+      "Unlimited pipelines",
+      "30-day retention",
+      "Up to 50 users included",
+      "2M events/day included",
+    ],
+    cta: "Start Team trial",
+    highlight: true,
+    footnote: "Example: 50 users = $199/month total, about $4/user.",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: "From $1,500",
+    period: "per month",
+    description: "For organizations with procurement, SSO, and data residency needs.",
+    features: [
+      "Custom retention",
+      "SSO, audit logs, DPA",
+      "Regional data controls",
+      "24/7 support",
+    ],
+    cta: "Contact sales",
+    highlight: false,
+    footnote: "SOC 2 Type II in progress. Security packet available on request.",
+  },
+];
+
+export function DemoPricing({ variant = "control" }: Props) {
+  const tiers = variant === "control" ? controlTiers : variantTiers;
+
   return (
     <section id="pricing" className="py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -88,7 +147,7 @@ export function DemoPricing() {
                   t.highlight
                     ? "bg-indigo-600 text-white hover:bg-indigo-500"
                     : "border border-slate-200 bg-white text-slate-900 hover:bg-slate-50"
-                }`}
+                } transition-transform active:scale-[0.96]`}
               >
                 {t.cta}
               </button>
